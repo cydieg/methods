@@ -64,6 +64,7 @@ Route::delete('/archive-clinic/{id}', [ClinicController::class, 'archive'])->nam
 
 Route::get('/home1', [ClientController::class, 'home1'])->name('home1');
 Route::get('/about2', [CLientController::class, 'about2'])->name('about2');
+Route::get('/dentalClinic2', [PageController::class, 'dentalClinic2'])->name('dentalClinic2');
 
 
 
@@ -86,7 +87,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('manual.logout');
 //landingpage
 Route::get('/home', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/products', [PageController::class, 'products'])->name('products');
+Route::get('/dentalClinic', [PageController::class, 'dentalClinic'])->name('dentalClinic');
 
 
 

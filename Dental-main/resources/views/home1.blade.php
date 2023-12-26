@@ -46,7 +46,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="col-12">
-                <img src="/back/vendors/images/medicines-l.webp" alt="Pharmacy Image">
+                <img src="/back/images/loginpic.jpg" alt="dental Image">
             </div>
             <div class="col-12">
                 <h1>Welcome to OralEase - Your Trusted Dental Clinics</h1>

@@ -59,7 +59,7 @@
                 <ul class="main-nav">
 				<li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('about') }}">About</a></li>
-                <li><a href="{{ route('products') }}">Clinics</a></li>
+                <li><a href="{{ route('dentalClinic') }}">Clinics</a></li>
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">

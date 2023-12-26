@@ -9,19 +9,19 @@
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="/back/vendors/images/apple-touch-icon.png"
+			href="/back/images/OralEase.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="/back/vendors/images/favicon-32x32.png"
+			href="/back/images/OralEase.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="/back/vendors/images/favicon-16x16.png"
+			href="/back/images/OralEase.png"
 		/>
 
 		<!-- Mobile Specific Metas -->
@@ -437,9 +437,9 @@
 		<div class="left-side-bar">
 			<div class="brand-logo">
 				<a href="index.html">
-					<img src="/back/vendors/images/RXCUE PHARMACY.png" alt="" class="dark-logo" />
+					<img src="/back/images/OralEase.png" alt="" class="dark-logo" />
 					<img
-						src="/vendors/images/deskapp-logo-white.svg"
+						src="/back/images/OralEase.png"
 						alt=""
 						class="light-logo"
 					/>
@@ -556,8 +556,8 @@
 									<div id="chart"></div>
 								</div>
 								<div class="widget-data">
-									<div class="h4 mb-0">2020</div>
-									<div class="weight-600 font-14">Naujan</div>
+									<div class="h4 mb-0">2</div>
+									<div class="weight-600 font-14">Patient</div>
 								</div>
 							</div>
 						</div>
@@ -569,8 +569,8 @@
 									<div id="chart2"></div>
 								</div>
 								<div class="widget-data">
-									<div class="h4 mb-0">400</div>
-									<div class="weight-600 font-14">Victoria</div>
+									<div class="h4 mb-0">2</div>
+									<div class="weight-600 font-14">Staff</div>
 								</div>
 							</div>
 						</div>
@@ -582,8 +582,8 @@
 									<div id="chart3"></div>
 								</div>
 								<div class="widget-data">
-									<div class="h4 mb-0">350</div>
-									<div class="weight-600 font-14">Calapan</div>
+									<div class="h4 mb-0">4</div>
+									<div class="weight-600 font-14">Pending  Appointments</div>
 								</div>
 							</div>
 						</div>
@@ -595,8 +595,8 @@
 									<div id="chart4"></div>
 								</div>
 								<div class="widget-data">
-									<div class="h4 mb-0">6060</div>
-									<div class="weight-600 font-14">Pinamalayan</div>
+									<div class="h4 mb-0">2</div>
+									<div class="weight-600 font-14">Approved Appointments</div>
 								</div>
 							</div>
 						</div>
@@ -605,45 +605,40 @@
 				<div class="row">
 					<div class="col-xl-8 mb-30">
 						<div class="card-box height-100-p pd-20">
-							<h2 class="h4 mb-20">Statistics</h2>
+							<h2 class="h4 mb-20">Reports</h2>
 							<div id="chart5"></div>
 						</div>
 					</div>
 					<div class="col-xl-4 mb-30">
 						<div class="card-box height-100-p pd-20">
-							<h2 class="h4 mb-20"> Predictive Analysis</h2>
+							<h2 class="h4 mb-20"> Data Visualization</h2>
 							<div id="chart6"></div>
 						</div>
 					</div>
 				</div>
 				<div class="card-box mb-30">
-					<h2 class="h4 pd-20">Best Selling Products</h2>
+					<h2 class="h4 pd-20">List of Dental Clinics</h2>
 					<table class="data-table table nowrap">
 						<thead>
 							<tr>
-								<th class="table-plus datatable-nosort">Product</th>
+								<th>ClinicID</th>
 								<th>Name</th>
-								<th>Description</th>
-								<th>Price</th>
+								<th>Location</th>
+								<th>Contact</th>
+								<th>Status</th>
 								<th class="datatable-nosort">Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="table-plus">
-									<img
-										src="/back/vendors/images/biogesic.jfif"
-										width="70"
-										height="70"
-										alt=""
-									/>
-								</td>
 								<td>
-									<h5 class="font-16">Biogesic</h5>
+									<h5 class="font-16">C0001</h5>
 							
 								</td>
-								<td>ck nbkj</td>
-								<td>ahjcfgv</td>
+								<td>Goco Dental Clnic</td>
+								<td>JP SubStreet, San Vicente, Calapan City</td>
+								<td>09786524758</td>
+								<td>Active</td>
 								<td>
 									<div class="dropdown">
 										<a
@@ -670,176 +665,131 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
-								<td class="table-plus">
-									<img
-										src="/back/vendors/images/robitussin.jfif"
-										width="70"
-										height="70"
-										alt=""
-									/>
-								</td>
-								<td>
-									<h5 class="font-16">Robitussin</h5>
-								</td>
-								<td>jdhv</td>
-								<td>900</td>
-				
-								<td>
-									<div class="dropdown">
-										<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-										>
-											<i class="dw dw-more"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-										>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-eye"></i> View</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-edit2"></i> Edit</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-delete-3"></i> Delete</a
-											>
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td class="table-plus">
-									<img
-										src="/back/vendors/images/solmux.jfif"
-										width="70"
-										height="70"
-										alt=""
-									/>
-								</td>
-								<td>
-									<h5 class="font-16">Solmux</h5>
-			
-								</td>
-								<td>Mgfhjdrf</td>
-								<td>100</td>
 							
-								<td>
-									<div class="dropdown">
-										<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-										>
-											<i class="dw dw-more"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-										>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-eye"></i> View</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-edit2"></i> Edit</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-delete-3"></i> Delete</a
-											>
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td class="table-plus">
-									<img
-										src="/back/vendors/images/neozep.jfif"
-										width="70"
-										height="70"
-										alt=""
-									/>
-								</td>
-								<td>
-									<h5 class="font-16">Neozep</h5>
-							
-								</td>
-								<td>Lderye</td>
-								<td>30</td>
-							
-								<td>
-									<div class="dropdown">
-										<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-										>
-											<i class="dw dw-more"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-										>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-eye"></i> View</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-edit2"></i> Edit</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-delete-3"></i> Delete</a
-											>
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td class="table-plus">
-									<img
-										src="/back/vendors/images/paracetamol.jfif"
-										width="70"
-										height="70"
-										alt=""
-									/>
-								</td>
-								<td>
-									<h5 class="font-16">Paracetamol</h5>
-									
-								</td>
-								<td>Mdrfhde</td>
-								<td>120</td>
-								
-								<td>
-									<div class="dropdown">
-										<a
-											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-											href="#"
-											role="button"
-											data-toggle="dropdown"
-										>
-											<i class="dw dw-more"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-										>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-eye"></i> View</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-edit2"></i> Edit</a
-											>
-											<a class="dropdown-item" href="#"
-												><i class="dw dw-delete-3"></i> Delete</a
-											>
-										</div>
-									</div>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
+
+				<div class="card-box mb-30">
+					<h2 class="h4 pd-20">List of Doctors</h2>
+					<table class="data-table table nowrap">
+						<thead>
+							<tr>
+								<th>DoctorID</th>
+								<th>Name</th>
+								<th>Age</th>
+								<th>Gender</th>
+								<th>Address</th>
+								<th>Status</th>
+								<th class="datatable-nosort">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								
+								<td>
+									<h5 class="font-16">D0001</h5>
+							
+								</td>
+								<td>Mercedes Goco</td>
+								<td>58</td>
+								<td>Female</td>
+								<td>Calero, Calapan City</td>
+								<td>Available</td>
+								<td>
+									<div class="dropdown">
+										<a
+											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+											href="#"
+											role="button"
+											data-toggle="dropdown"
+										>
+											<i class="dw dw-more"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+										>
+											<a class="dropdown-item" href="#"
+												><i class="dw dw-eye"></i> View</a
+											>
+											<a class="dropdown-item" href="#"
+												><i class="dw dw-edit2"></i> Edit</a
+											>
+											<a class="dropdown-item" href="#"
+												><i class="dw dw-delete-3"></i> Delete</a
+											>
+										</div>
+									</div>
+								</td>
+							</tr>
+							
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="card-box mb-30">
+					<h2 class="h4 pd-20">List of Staff</h2>
+					<table class="data-table table nowrap">
+						<thead>
+							<tr>
+								<th>StaffId</th>
+								<th>Name</th>
+								<th>Age</th>
+								<th>Gender</th>
+								<th>Address</th>
+								
+								<th class="datatable-nosort">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								
+								<td>
+									<h5 class="font-16">S0001</h5>
+							
+								</td>
+								<td>Cydie Gargullo</td>
+								<td>20</td>
+								<td>Female</td>
+								<td>Bancuro, Naujan, Oriental Mindoro</td>
+								<td>
+									<div class="dropdown">
+										<a
+											class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+											href="#"
+											role="button"
+											data-toggle="dropdown"
+										>
+											<i class="dw dw-more"></i>
+										</a>
+										<div
+											class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+										>
+											<a class="dropdown-item" href="#"
+												><i class="dw dw-eye"></i> View</a
+											>
+											<a class="dropdown-item" href="#"
+												><i class="dw dw-edit2"></i> Edit</a
+											>
+											<a class="dropdown-item" href="#"
+												><i class="dw dw-delete-3"></i> Delete</a
+											>
+										</div>
+									</div>
+								</td>
+							</tr>
+							
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
 				<div class="footer-wrap pd-20 mb-20 card-box">
 					@2023 | OralEase
 				</div>

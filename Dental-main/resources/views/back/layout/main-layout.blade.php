@@ -432,9 +432,9 @@
 		<div class="left-side-bar">
 			<div class="brand-logo">
 				<a href="index.html">
-					<img src="/back/vendors/images/RXCUE PHARMACY.png" alt="" class="dark-logo" />
+					<img src="/back/images/OralEase.png" alt="" class="dark-logo" />
 					<img
-						src="/vendors/images/deskapp-logo-white.svg"
+						src="/back/images/OralEase.png"
 						alt=""
 						class="light-logo"
 					/>
