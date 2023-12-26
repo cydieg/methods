@@ -9,19 +9,19 @@
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="/back/vendors/images/apple-touch-icon.png"
+			href="/back/images/OralEase.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="/back/vendors/images/favicon-32x32.png"
+			href="/back/images/OralEase.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="/back/vendors/images/favicon-16x16.png"
+			href="/back/images/OralEase.png"
 		/>
 
 		<!-- Mobile Specific Metas -->
@@ -448,9 +448,9 @@
 		<div class="left-side-bar">
 			<div class="brand-logo">
 				<a href="index.html">
-					<img src="/back/vendors/images/RXCUE PHARMACY.png" alt="" class="dark-logo" />
+					<img src="/back/images/OralEase.png" alt="" class="dark-logo" />
 					<img
-						src="/vendors/images/deskapp-logo-white.svg"
+						src="/back/images/OralEase.png"
 						alt=""
 						class="light-logo"
 					/>
@@ -463,42 +463,13 @@
 				<div class="sidebar-menu">
 					<ul id="accordion-menu">
 						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
+							<a href="{{ route('homeStaff') }}" class="dropdown-toggle no-arrow">
 								<i class="micon bi bi-house-door"></i>
 								<span class="mtext">Home</span>
 							</a>
 						</li>
 						<li class="dropdown">
-							<a class="dropdown-toggle no-arrow">
-								<i class="micon bi bi-graph-up"></i>
-								<span class="mtext">Sales Management</span>
-							</a>
-						</li>
-						
-						
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
-								<i class="micon bi bi-house-door"></i>
-								<span class="mtext">Inventory</span>
-							</a>
-							<ul class="submenu">
-								
-							</ul>
-						</li>
-			
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
-								<i class="micon bi bi-cart"></i>
-								<span class="mtext">Purchases</span>
-							</a>
-							<ul class="submenu">
-								<li>
-									<a class="dropdown-item" >View Purchases</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
+							<a href="{{ route('staff') }}" class="dropdown-toggle no-arrow">
 								<i class="micon bi bi-calendar"></i>
 								<span class="mtext">Appointment</span>
 							</a>

@@ -22,4 +22,10 @@ class StaffController extends Controller
 
         return redirect()->route('staff')->with('success', 'Appointment completed successfully');
     }
+
+    public function homeStaff()
+    {
+        return view('staff.homeStaff');
+    }
+    
 }

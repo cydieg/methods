@@ -472,11 +472,8 @@
 						</li>
                         -->
 						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-calendar-plus"></span>
 							<a href="{{ route('appointment.completed') }}" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-arrow-up-right-square"></span>
-
 								<span class="mtext">Appointment</span>
 							</a>
 						</li>
@@ -505,8 +502,7 @@
 							<!-- Add the button to navigate to the route for managing users -->	
 							<ul class="submenu">
 								<li>				
-							<a href="{{ route('userTable') }}">Manage Users</a>
-							<a href="{{ route('userTable') }}">Manage Staff</a>
+							<a href="/userTable">Manage Users</a>
 						</li>
 						</ul>
                         <li class="dropdown">

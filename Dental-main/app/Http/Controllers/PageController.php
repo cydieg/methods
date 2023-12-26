@@ -25,7 +25,6 @@ class PageController extends Controller
     {
         return view('map');
     }
-    
 }
 
 
