@@ -485,8 +485,12 @@
 								<span class="micon bi bi-building"></span>
 								<span class="mtext">Manage Clinics</span>
 							</a>
+							<ul class="submenu">
+								<li>
+							<a href="/create-clinic" >Add Clinic</a></li></ul>
 							<!-- Add the following button for creating a branch -->
-						</li>                    
+						</li>
+						                    
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-person"></span>
