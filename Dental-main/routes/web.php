@@ -88,6 +88,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('manual.logout');
 Route::get('/home', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/dentalClinic', [PageController::class, 'dentalClinic'])->name('dentalClinic');
+Route::get('/map', [PageController::class, 'map'])->name('map');
 
 
 

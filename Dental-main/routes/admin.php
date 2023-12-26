@@ -15,5 +15,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::view('/home', 'back.pages.admin.home')->name('home');
         Route::post('/logout_handler', [AdminController::class, 'logoutHandler'])->name('logout_handler');
     });
-
 });

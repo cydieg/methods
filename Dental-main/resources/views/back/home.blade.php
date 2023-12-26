@@ -35,6 +35,9 @@
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="/back/vendors/styles/core.css" />
 		<link
@@ -470,16 +473,16 @@
                         -->
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-arrow-up-right-square"></span
-								><span class="mtext">Appointment</span>
+								<span class="micon bi bi-calendar-plus"></span>
+								<span class="mtext">Appointment</span>
 							</a>
 						</li>
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-arrow-up-right-square"></span
-								><span class="mtext">Reports</span>
+								<span class="micon bi bi-bar-chart"></span>
+								<span class="mtext">Reports</span>
 							</a>
-						</li>
+						</li>						
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-building"></span>
@@ -504,7 +507,7 @@
 						</li>
 						</ul>
                         <li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
+							<a href="/map" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-box"></span
 								><span class="mtext">Mapping</span>
 							</a>								

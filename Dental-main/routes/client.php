@@ -39,3 +39,6 @@ Route::get('/dentalClinic2', function () {
     return view('dentalClinic2');
 })->name('dentalClinic2');
 
+Route::get('/map', function () {
+    return view('map');
+})->name('map');

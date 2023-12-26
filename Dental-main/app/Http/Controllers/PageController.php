@@ -20,6 +20,12 @@ class PageController extends Controller
     {
         return view('dentalClinic');
     }
+
+    public function map()
+    {
+        return view('map');
+    }
+    
 }
 
 

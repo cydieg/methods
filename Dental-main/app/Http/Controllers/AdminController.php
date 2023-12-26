@@ -50,6 +50,4 @@ class AdminController extends Controller
         session()->flash('fall', 'You are logged out!');
         return redirect()->route('admin.login');
     }
-
-    
 }
