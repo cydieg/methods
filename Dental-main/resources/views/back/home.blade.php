@@ -474,6 +474,9 @@
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-calendar-plus"></span>
+							<a href="{{ route('appointment.completed') }}" class="dropdown-toggle no-arrow">
+								<span class="micon bi bi-arrow-up-right-square"></span>
+
 								<span class="mtext">Appointment</span>
 							</a>
 						</li>
