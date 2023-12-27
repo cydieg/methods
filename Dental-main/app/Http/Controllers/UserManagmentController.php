@@ -14,6 +14,7 @@ class UserManagmentController extends Controller
     {
         $user_table = User::all();
         return view('usermanagement.usertable', compact('user_table'));
+
     }
 
     // Edit user
