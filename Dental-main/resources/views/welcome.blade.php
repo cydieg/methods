@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		
 		<!-- Favicons -->
-		<link href="vendors/images/RXCUE PHARMACY.png">
+		<link href="back/images/OralEase.png">
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -44,13 +44,13 @@
                     </span>
                 </a>
                 <a href="index-2.html" class="navbar-brand logo">
-                    <img src="/back/vendors/images/RXCUE PHARMACY.png" class="img-fluid" alt="Logo">
+                    <img src="/back/images/OralEase.png" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="index-2.html" class="menu-logo">
-                        <img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+                        <img src="/back/images/loginpic.jpg" class="img-fluid" alt="Logo">
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0);">
                         <i class="fas fa-times"></i>
@@ -73,7 +73,7 @@
                     </div>
                 </li>
 				<li class="nav-item">
-                    <a class="nav-link header-login" href="{{ route('login') }}">Shop Now</a>
+                    <a class="nav-link header-login" href="{{ route('login') }}">Appoint Now</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link header-login" href="{{ route('login') }}">Login / Signup</a>
@@ -142,7 +142,7 @@
 							<div class="content">
 								<div class="container-fluid">
 									<div class="col-12">
-										<img src="/back/vendors/images/medicines-l.webp" alt="Pharmacy Image">
+										<img src="/back/images/loginpic.jpg" alt="dental Image">
 									</div>
 									<div class="col-12">
 										<h1>Welcome to OralEase - Your Trusted Dental Clinics</h1>

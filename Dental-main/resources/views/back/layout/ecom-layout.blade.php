@@ -59,7 +59,7 @@
 				<ul class="main-nav">
 					<li><a href="{{ route('home1') }}">Home</a></li>
 					<li><a href="{{ route('about2') }}">About</a></li>
-					<li><a href="{{ route('dentalClinic') }}">Clinics</a></li>
+					<li><a href="{{ route('dentalClinic2') }}">Clinics</a></li>
 					</ul>
             </div>
             <ul class="nav header-navbar-rht">
@@ -73,15 +73,10 @@
                     </div>
                 </li>
 				<li class="nav-item">
-					<a class="nav-link header-login" href="{{ url('/cart') }}">
-						<i class="fas fa-shopping-cart"></i> View Cart
+					<a class="nav-link header-login" href="{{ route('customer') }}">
+						<i class="fas fa-calendar-plus"></i> Make Appointment
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="{{ route('ecom.purchase.history') }}" class="btn btn-primary">View Purchase History</a>
-				</li>
-				
-				
                 <li class="nav-item">
                     <a class="nav-link header-login" href="{{ route('manual.logout') }}">Logout</a>
                 </li>
@@ -100,7 +95,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="{{ route('home1') }}">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('about2') }}">About</a></li>
-									<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('about2') }}">Clinics</a></li>
+									<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('dentalClinic2') }}">Clinics</a></li>
 								</ol>
 							</nav>
 						</div>

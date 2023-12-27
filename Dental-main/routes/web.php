@@ -38,9 +38,13 @@ Route::middleware(['auth.manual'])->group(function () {
 // routes/web.php or routes/web.php
 
 Route::middleware(['auth.manual'])->group(function () {
-    Route::get('/customer', [ClientController::class, 'index'])->name('customer');
+    Route::get('/customer', [ClientController::class, 'customer'])->name('customer');
     Route::post('/appointments', [ClientController::class, 'store'])->name('appointments.store');
 });
+
+// Separate route without the auth.manual middleware for the customer route
+Route::get('/customer', [ClientController::class, 'customer'])->name('customer')->middleware('auth');
+
 
 
 //User Management rout//
@@ -68,8 +72,8 @@ Route::delete('/archive-clinic/{id}', [ClinicController::class, 'archive'])->nam
 //CLIENT side//
 
 Route::get('/home1', [ClientController::class, 'home1'])->name('home1');
-Route::get('/about2', [CLientController::class, 'about2'])->name('about2');
-Route::get('/dentalClinic2', [PageController::class, 'dentalClinic2'])->name('dentalClinic2');
+Route::get('/about2', [ClientController::class, 'about2'])->name('about2');
+Route::get('/dentalClinic2', [ClientController::class, 'dentalClinic2'])->name('dentalClinic2');
 
 
 

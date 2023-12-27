@@ -10,18 +10,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
-    public function index()
+    public function customer()
     {
         // Get the authenticated user's clinic ID
         $clinicId = Auth::user()->clinic_id;
-
+    
         // Retrieve appointments only for the user's clinic
         $appointments = Auth::user()->appointments()->whereHas('user', function ($query) use ($clinicId) {
             $query->where('clinic_id', $clinicId);
         })->get();
-
-        return view('client.index', compact('appointments'));
+    
+        // No need for redirects here
+    
+        return view('client.customer', compact('appointments'));
     }
+    
 
     public function store(Request $request)
 {
@@ -48,5 +51,20 @@ class ClientController extends Controller
 
     // Redirect to the index page with a success message
     return redirect()->route('customer')->with('success', 'Appointment ' . ($status == 'pending' ? 'requested' : 'completed') . ' successfully');
+}
+
+public function home1()
+{
+    return view('home1');
+}
+
+public function about2()
+{
+    return view('about2');
+}
+
+public function dentalClinic2()
+{
+    return view('dentalClinic2');
 }
 }

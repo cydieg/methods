@@ -55,10 +55,6 @@
                 <th>Last Name</th>
                 <th>Appointment Date</th>
                 <th>Appointment Time</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Clinic</th>
-                <th>Address</th>
             </tr>
             @foreach($completedAppointments as $appointment)
                 <tr>
@@ -66,10 +62,6 @@
                     <td>{{ $appointment->last_name }}</td>
                     <td>{{ $appointment->appointment_date }}</td>
                     <td>{{ $appointment->appointment_time }}</td>
-                    <td>{{ $appointment->user->age }}</td>
-                    <td>{{ $appointment->user->gender }}</td>
-                    <td>{{ $appointment->user->clinic->name }}</td>
-                    <td>{{ $appointment->user->clinic->location }}</td>
                 </tr>
             @endforeach
         </table>
