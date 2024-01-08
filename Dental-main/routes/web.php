@@ -74,12 +74,9 @@ Route::delete('/archive-clinic/{id}', [ClinicController::class, 'archive'])->nam
 Route::get('/home1', [ClientController::class, 'home1'])->name('home1');
 Route::get('/about2', [ClientController::class, 'about2'])->name('about2');
 Route::get('/dentalClinic2', [ClientController::class, 'dentalClinic2'])->name('dentalClinic2');
-
-
+Route::get('/viewProfileDoctor', [ClientController::class, 'viewProfileDoctor'])->name('viewProfileDoctor');
 
 // routes/web.php
-
-
 
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');

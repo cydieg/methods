@@ -67,4 +67,9 @@ public function dentalClinic2()
 {
     return view('dentalClinic2');
 }
+
+public function viewProfileDoctor()
+{
+    return view('viewProfileDoctor');
+}
 }

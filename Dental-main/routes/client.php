@@ -43,3 +43,7 @@ Route::get('/map', function () {
     return view('map');
 })->name('map');
 
+Route::get('/viewProfileDoctor', function () {
+    return view('viewProfileDoctor');
+})->name('viewProfileDoctor');
+

@@ -64,6 +64,7 @@
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
 										<p class="speciality">Dentist</p>
+										<p class="speciality">Goco Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>

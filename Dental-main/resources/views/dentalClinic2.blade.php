@@ -63,7 +63,7 @@
 											<a href="doctor-profile.html">Dra. Ivy Goco</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Goco Dental Clinic</p>			
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -80,6 +80,14 @@
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
 											</li>
 										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+											</div>
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Book Now</a>
+											</div>
+										</div>
 									</div>
 								</div>
 								<!-- /Doctor Widget -->
@@ -99,7 +107,7 @@
 											<a href="doctor-profile.html">Dra. Gayeta</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Gayeta Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -116,6 +124,14 @@
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
 											</li>
 										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+											</div>
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Book Now</a>
+											</div>
+										</div>
 									</div>
 								</div>
 								<!-- /Doctor Widget -->
@@ -135,7 +151,7 @@
 											<a href="doctor-profile.html">Benedict Masangkay</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Benedict Masangkay Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -152,6 +168,14 @@
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
 											</li>
 										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+											</div>
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Book Now</a>
+											</div>
+										</div>
 									</div>
 								</div>
 								<!-- /Doctor Widget -->
@@ -171,7 +195,7 @@
 											<a href="doctor-profile.html">Dr. Bolor</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Bolor Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -188,6 +212,14 @@
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
 											</li>
 										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+											</div>
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Book Now</a>
+											</div>
+										</div>
 									</div>
 								</div>
 								<!-- /Doctor Widget -->
@@ -207,7 +239,7 @@
 											<a href="doctor-profile.html">Dra. Orense</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Orense Medical Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -224,6 +256,14 @@
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
 											</li>
 										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+											</div>
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Book Now</a>
+											</div>
+										</div>
 									</div>
 								</div>
 								<!-- /Doctor Widget -->
@@ -243,7 +283,7 @@
 											<a href="doctor-profile.html">Dr. Gozar</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Gozar Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -260,6 +300,14 @@
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
 											</li>
 										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+											</div>
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Book Now</a>
+											</div>
+										</div>
 									</div>
 								</div>
 								<!-- /Doctor Widget -->
