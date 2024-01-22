@@ -74,7 +74,14 @@ Route::delete('/archive-clinic/{id}', [ClinicController::class, 'archive'])->nam
 Route::get('/home1', [ClientController::class, 'home1'])->name('home1');
 Route::get('/about2', [ClientController::class, 'about2'])->name('about2');
 Route::get('/dentalClinic2', [ClientController::class, 'dentalClinic2'])->name('dentalClinic2');
-Route::get('/viewProfileDoctor', [ClientController::class, 'viewProfileDoctor'])->name('viewProfileDoctor');
+
+//Doctors View Profile
+Route::get('/GayetaviewProfileDoctor', [ClientController::class, 'GayetaviewProfileDoctor'])->name('GayetaviewProfileDoctor');
+Route::get('/GocoViewProfile', [ClientController::class, 'GocoViewProfile'])->name('GocoViewProfile');
+Route::get('/BenedictViewProfile', [ClientController::class, 'BenedictViewProfile'])->name('BenedictViewProfile');
+Route::get('/BolorViewProfile', [ClientController::class, 'BolorViewProfile'])->name('BolorViewProfile');
+Route::get('/OrenseViewProfile', [ClientController::class, 'OrenseViewProfile'])->name('OrenseViewProfile');
+Route::get('/GozarViewProfile', [ClientController::class, 'GozarViewProfile'])->name('GozarViewProfile');
 
 // routes/web.php
 

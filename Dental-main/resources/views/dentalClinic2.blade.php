@@ -82,10 +82,10 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+												<a href="{{ route('GocoViewProfile') }}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
-												<a href="booking.html" class="btn book-btn">Book Now</a>
+												<a href="{{ route('customer') }}" class="btn book-btn">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -126,10 +126,10 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+												<a href="{{ route('GayetaviewProfileDoctor') }}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
-												<a href="booking.html" class="btn book-btn">Book Now</a>
+												<a href="{{ route('customer') }}" class="btn book-btn">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -170,10 +170,10 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+												<a href="{{ route('BenedictViewProfile') }}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
-												<a href="booking.html" class="btn book-btn">Book Now</a>
+												<a href="{{ route('customer') }}" class="btn book-btn">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -214,10 +214,10 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+												<a href="{{ route('BolorViewProfile') }}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
-												<a href="booking.html" class="btn book-btn">Book Now</a>
+												<a href="{{ route('customer') }}" class="btn book-btn">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -250,7 +250,7 @@
 										</div>
 										<ul class="available-info">
 											<li>
-												<i class="fas fa-map-marker-alt"></i> A. Mabini Street, Calapan City, Mimaropa, 5200
+												<i class="fas fa-map-marker-alt"></i> Mabini Street, Calapan City, Mimaropa, 5200
 											</li>
 											<li>
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
@@ -258,10 +258,10 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+												<a href="{{ route('OrenseViewProfile') }}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
-												<a href="booking.html" class="btn book-btn">Book Now</a>
+												<a href="{{ route('customer') }}" class="btn book-btn">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -302,10 +302,10 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{ route('viewProfileDoctor') }}" class="btn view-btn">View Profile</a>
+												<a href="{{ route('GozarViewProfile') }}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
-												<a href="booking.html" class="btn book-btn">Book Now</a>
+												<a href="{{ route('customer') }}" class="btn book-btn">Book Now</a>
 											</div>
 										</div>
 									</div>

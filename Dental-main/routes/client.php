@@ -43,7 +43,26 @@ Route::get('/map', function () {
     return view('map');
 })->name('map');
 
-Route::get('/viewProfileDoctor', function () {
-    return view('viewProfileDoctor');
-})->name('viewProfileDoctor');
+Route::get('/GayetaviewProfileDoctor', function () {
+    return view('GayetaviewProfileDoctor');
+})->name('GayetaviewProfileDoctor');
 
+Route::get('/GocoViewProfile', function () {
+    return view('GocoViewProfile');
+})->name('GocoViewProfile');
+
+Route::get('/BenedictViewProfile', function () {
+    return view('BenedictViewProfile');
+})->name('BenedictViewProfile');
+
+Route::get('/BolorViewProfile', function () {
+    return view('BolorViewProfile');
+})->name('BolorViewProfile');
+
+Route::get('/OrenseViewProfile', function () {
+    return view('OrenseViewProfile');
+})->name('OrenseViewProfile');
+
+Route::get('/GozarViewProfile', function () {
+    return view('GozarViewProfile');
+})->name('GozarViewProfile');

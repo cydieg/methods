@@ -52,7 +52,7 @@
 										<img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid" alt="User Image">
 									</div>
 									<div class="doc-info-cont">
-										<h4 class="doc-name">Dr. Darren Elder</h4>
+										<h4 class="doc-name">Dra. Ivy Goco</h4>
 										<p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
 										<p class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</p>
 										<div class="rating">
@@ -64,7 +64,7 @@
 											<span class="d-inline-block average-rating">(35)</span>
 										</div>
 										<div class="clinic-details">
-											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
+											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> San Vicente, Philippines - <a href="javascript:void(0);">Get Directions</a></p>
 											<ul class="clinic-gallery">
 												<li>
 													<a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
@@ -99,7 +99,7 @@
 										<ul>
 											<li><i class="far fa-thumbs-up"></i> 99%</li>
 											<li><i class="far fa-comment"></i> 35 Feedback</li>
-											<li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
+											<li><i class="fas fa-map-marker-alt"></i> San Vicente, Philippines</li>
 											<li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
 										</ul>
 									</div>
