@@ -10,6 +10,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ClientController;  
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\SuperAdminController;
 
 
 /*
@@ -113,3 +114,4 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/super-admin-dashboard', function () {
     return view('superadmin.dashboard');
 })->name('super_admin.home');
+Route::post('/super-admin-logout', [SuperAdminController::class, 'logout'])->name('super_admin.logout');

@@ -16,6 +16,10 @@
                     <div class="card-body">
                         Welcome, Super Admin! This is your dashboard.
                         <!-- Add your super admin dashboard content here -->
+                        <form action="{{ route('super_admin.logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Logout</button>
+                        </form>
                     </div>
                 </div>
             </div>
