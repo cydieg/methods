@@ -67,34 +67,4 @@ public function dentalClinic2()
 {
     return view('dentalClinic2');
 }
-
-public function GayetaviewProfileDoctor()
-{
-    return view('GayetaviewProfileDoctor');
-}
-
-public function GocoViewProfile()
-{
-    return view('GocoViewProfile');
-}
-
-public function BenedictViewProfile()
-{
-    return view('BenedictViewProfile');
-}
-
-public function BolorViewProfile()
-{
-    return view('BolorViewProfile');
-}
-
-public function OrenseViewProfile()
-{
-    return view('OrenseViewProfile');
-}
-
-public function GozarViewProfile()
-{
-    return view('GozarViewProfile');
-}
 }
