@@ -63,8 +63,7 @@
 											<a href="doctor-profile.html">Dra. Ivy Goco</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
-										<p class="speciality">Goco Dental Clinic</p>
+										<p class="speciality">Dentist <br> Goco Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -100,7 +99,7 @@
 											<a href="doctor-profile.html">Dra. Gayeta</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Gayeta Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -136,7 +135,7 @@
 											<a href="doctor-profile.html">Benedict Masangkay</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Benedict Masangkay Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -172,7 +171,7 @@
 											<a href="doctor-profile.html">Dr. Bolor</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Bolor Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -208,7 +207,7 @@
 											<a href="doctor-profile.html">Dra. Orense</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Orense Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -219,7 +218,7 @@
 										</div>
 										<ul class="available-info">
 											<li>
-												<i class="fas fa-map-marker-alt"></i> A. Mabini Street, Calapan City, Mimaropa, 5200
+												<i class="fas fa-map-marker-alt"></i> Mabini Street, Calapan City, Mimaropa, 5200
 											</li>
 											<li>
 												<i class="far fa-clock"></i> Available on Fri, 22 Mar
@@ -244,7 +243,7 @@
 											<a href="doctor-profile.html">Dr. Gozar</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Dentist</p>
+										<p class="speciality">Dentist <br> Gozar Dental Clinic</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>

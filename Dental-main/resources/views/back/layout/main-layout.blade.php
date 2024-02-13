@@ -521,6 +521,14 @@
 						</li>
 					</ul>
 						
+					<ul>
+						<li>
+							<a href="chat.html" class="dropdown-toggle no-arrow">
+								<span class="micon bi bi-chat-right-dots"></span
+								><span class="mtext">Invoices</span>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

@@ -196,7 +196,7 @@
                             <h5 class="font-16">Solmux</h5>
     
                         </td>
-                        <td>Mgfhjdrf</td>
+                        <td>Bababu</td>
                         <td>100</td>
                     
                         <td>
@@ -238,7 +238,7 @@
                             <h5 class="font-16">Neozep</h5>
                     
                         </td>
-                        <td>Lderye</td>
+                        <td>Urbaniotic Acid</td>
                         <td>30</td>
                     
                         <td>
@@ -280,7 +280,7 @@
                             <h5 class="font-16">Paracetamol</h5>
                             
                         </td>
-                        <td>Mdrfhde</td>
+                        <td>Reduce headache</td>
                         <td>120</td>
                         
                         <td>

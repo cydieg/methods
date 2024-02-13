@@ -502,7 +502,7 @@
 							<!-- Add the button to navigate to the route for managing users -->	
 							<ul class="submenu">
 								<li>				
-							<a href="/userTable">Manage Users</a>
+							<a href="{{ route('userTable') }}">Manage Users</a>
 						</li>
 						</ul>
                         <li class="dropdown">
@@ -530,6 +530,14 @@
 						</li>
 					</ul>
 						
+					<ul>
+						<li>
+							<a href="chat.html" class="dropdown-toggle no-arrow">
+								<span class="micon bi bi-chat-right-dots"></span
+								><span class="mtext">Invoices</span>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

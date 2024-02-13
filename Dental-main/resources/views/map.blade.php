@@ -1,9 +1,6 @@
 @extends('back.layout.main-layout')
-
-@section('pageTitle', isset($pageTitle) ? $pageTitle : 'DentalClinic')
-
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title here')
 @section('content')
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <div>
@@ -38,5 +35,4 @@
             <script src="assets/js/script.js"></script>
         <!-- Your custom JavaScript -->
         <script src="assets/js/dental-clinic-map.js"></script>
-    @endsection
-    
+   @endsection

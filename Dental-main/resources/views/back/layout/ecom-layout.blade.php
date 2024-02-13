@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/blank-page.html  30 Nov 2019 04:12:20 GMT -->
+<!-- OralEase/blank-page.html  30 Nov 2019 04:12:20 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>OralEase</title>
@@ -245,5 +245,5 @@
 		<script src="assets/js/script.js"></script>
 	</body>
 
-<!-- doccure/blank-page.html  30 Nov 2019 04:12:20 GMT -->
+<!-- OralEase/blank-page.html  30 Nov 2019 04:12:20 GMT -->
 </html>

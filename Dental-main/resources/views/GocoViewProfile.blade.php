@@ -8,10 +8,10 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/doctor-profile.html  30 Nov 2019 04:12:16 GMT -->
+<!-- OralEase/doctor-profile.html  30 Nov 2019 04:12:16 GMT -->
 <head>
 		<meta charset="utf-8">
-		<title>Doccure</title>
+		<title>OralEase</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		
 		<!-- Favicons -->
@@ -330,7 +330,7 @@
 											<!-- Clinic Content -->
 											<div class="col-md-6">
 												<div class="clinic-content">
-													<h4 class="clinic-name"><a href="#">Smile Cute Dental Care Center</a></h4>
+													<h4 class="clinic-name"><a href="#"> Goco Dental Clinic</a></h4>
 													<p class="doc-speciality">MDS - Periodontology and Oral Implantology, BDS</p>
 													<div class="rating">
 														<i class="fas fa-star filled"></i>
@@ -341,7 +341,7 @@
 														<span class="d-inline-block average-rating">(4)</span>
 													</div>
 													<div class="clinic-details mb-0">
-														<h5 class="clinic-direction"> <i class="fas fa-map-marker-alt"></i> 2286  Sundown Lane, Austin, Texas 78749, USA <br><a href="javascript:void(0);">Get Directions</a></h5>
+														<h5 class="clinic-direction"> <i class="fas fa-map-marker-alt"></i> JP Rizal Street, San Vicente East, Calapan  City, Philipines <br><a href="javascript:void(0);">Get Directions</a></h5>
 														<ul>
 															<li>
 																<a href="assets/img/features/feature-01.jpg" data-fancybox="gallery2">
@@ -420,7 +420,7 @@
 														<span class="d-inline-block average-rating">(4)</span>
 													</div>
 													<div class="clinic-details mb-0">
-														<p class="clinic-direction"> <i class="fas fa-map-marker-alt"></i> 2883  University Street, Seattle, Texas Washington, 98155 <br><a href="javascript:void(0);">Get Directions</a></p>
+														<p class="clinic-direction"> <i class="fas fa-map-marker-alt"></i> JP Rizal Street, San Vicente East, Calapan City, Philippines <br><a href="javascript:void(0);">Get Directions</a></p>
 														<ul>
 															<li>
 																<a href="assets/img/features/feature-01.jpg" data-fancybox="gallery2">
@@ -850,7 +850,7 @@
 		
 	</body>
 
-<!-- doccure/doctor-profile.html  30 Nov 2019 04:12:16 GMT -->
+<!-- OralEase/doctor-profile.html  30 Nov 2019 04:12:16 GMT -->
 </html>
 
 @endsection
