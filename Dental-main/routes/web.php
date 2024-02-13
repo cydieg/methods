@@ -10,6 +10,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ClientController;  
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\SuperAdminController;
 
 
 /*
@@ -75,15 +76,11 @@ Route::get('/home1', [ClientController::class, 'home1'])->name('home1');
 Route::get('/about2', [ClientController::class, 'about2'])->name('about2');
 Route::get('/dentalClinic2', [ClientController::class, 'dentalClinic2'])->name('dentalClinic2');
 
-//Doctors View Profile
-Route::get('/GayetaviewProfileDoctor', [ClientController::class, 'GayetaviewProfileDoctor'])->name('GayetaviewProfileDoctor');
-Route::get('/GocoViewProfile', [ClientController::class, 'GocoViewProfile'])->name('GocoViewProfile');
-Route::get('/BenedictViewProfile', [ClientController::class, 'BenedictViewProfile'])->name('BenedictViewProfile');
-Route::get('/BolorViewProfile', [ClientController::class, 'BolorViewProfile'])->name('BolorViewProfile');
-Route::get('/OrenseViewProfile', [ClientController::class, 'OrenseViewProfile'])->name('OrenseViewProfile');
-Route::get('/GozarViewProfile', [ClientController::class, 'GozarViewProfile'])->name('GozarViewProfile');
+
 
 // routes/web.php
+
+
 
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
@@ -113,4 +110,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('completed', [AppointmentController::class, 'completedAppointments'])->name('appointment.completed');
     });
 });
-
+//super admin routes
+Route::get('/super-admin-dashboard', function () {
+    return view('superadmin.dashboard');
+})->name('super_admin.home');
+Route::post('/super-admin-logout', [SuperAdminController::class, 'logout'])->name('super_admin.logout');

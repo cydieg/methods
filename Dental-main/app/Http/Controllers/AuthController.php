@@ -22,7 +22,6 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        
         // Validate the form data
         $validatedData = $request->validate([
             'username' => 'required|string|max:50',
@@ -33,22 +32,21 @@ class AuthController extends Controller
             'gender' => 'required|in:male,female,other',
             'age' => 'required|integer',
             'email' => 'required|email|max:50',
-            'role' => 'required|in:admin,cashier,client',
+            'role' => 'required|in:super_admin,admin,staff,patient', // Include super_admin
             'password' => 'required|string|max:255',
             'clinic_id' => 'required|exists:clinics,id', // Change 'branch_id' to 'clinic_id'
         ]);
-    
+
         // Hash the password before creating the user
         $validatedData['password'] = bcrypt($validatedData['password']);
-    
+
         // Create a new user using the User model
         User::create($validatedData);
-    
+
         // Add any additional registration logic here (e.g., sending emails, etc.)
-    
+
         return redirect()->route('login.form');
     }
-    
 
     public function showLoginForm()
     {
@@ -56,38 +54,40 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-{
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required|string',
-    ]);
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
 
-    $user = User::where('email', $credentials['email'])->first();
+        $user = User::where('email', $credentials['email'])->first();
 
-    if ($user && Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
-        // Check if the user has access to the current clinic
-        if ($user->clinics_id === auth()->user()->clinics_id) {
-            // Redirect based on the user's role
-            switch ($user->role) {
-                case 'admin':
-                    return redirect()->route('admin.home');
-                case 'staff':
-                    return redirect('/staff');
-                case 'patient':
-                    return redirect()->route('customer');
-                default:
-                    return redirect()->route('dashboard');
+        if ($user && Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+            // Check if the user has access to the current clinic
+            if ($user->clinics_id === auth()->user()->clinics_id) {
+                // Redirect based on the user's role
+                switch ($user->role) {
+                    case 'super_admin':
+                        return redirect()->route('super_admin.home');
+                    case 'admin':
+                        return redirect()->route('admin.home');
+                    case 'staff':
+                        return redirect('/staff');
+                    case 'patient':
+                        return redirect()->route('customer');
+                    default:
+                        return redirect()->route('dashboard');
+                }
+            } else {
+                // User does not have access to the current clinic
+                Auth::logout();
+                return redirect()->route('login.form')->with('error', 'You do not have access to this clinic.');
             }
-        } else {
-            // User does not have access to the current clinic
-            Auth::logout();
-            return redirect()->route('login.form')->with('error', 'You do not have access to this clinic.');
         }
-    }
 
-    // Redirect back to the login form if authentication fails
-    return redirect()->route('login.form')->with('error', 'Invalid credentials');
-}
+        // Redirect back to the login form if authentication fails
+        return redirect()->route('login.form')->with('error', 'Invalid credentials');
+    }
 
     public function logout()
     {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 26, 2023 at 10:54 AM
+-- Generation Time: Feb 12, 2024 at 12:22 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `appointments` (
   `id` bigint UNSIGNED NOT NULL,
-  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `appointment_date` date NOT NULL,
   `appointment_time` time NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending'
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -45,7 +45,8 @@ CREATE TABLE `appointments` (
 
 INSERT INTO `appointments` (`id`, `first_name`, `last_name`, `appointment_date`, `appointment_time`, `created_at`, `updated_at`, `user_id`, `status`) VALUES
 (3, 'Jon Wendell', 'Cabrere', '2023-12-27', '19:17:00', '2023-12-25 23:17:46', '2023-12-25 23:18:06', 6, 'completed'),
-(4, 'Janzel', 'Bongo', '2023-12-29', '09:47:00', '2023-12-25 23:43:42', '2023-12-25 23:44:18', 6, 'completed');
+(4, 'Janzel', 'Bongo', '2023-12-29', '09:47:00', '2023-12-25 23:43:42', '2023-12-25 23:44:18', 6, 'completed'),
+(5, 'Jon Wendell', 'Cabrera', '2024-02-14', '08:39:00', '2024-02-12 03:38:41', '2024-02-12 03:39:00', 6, 'completed');
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2023_12_24_110225_remove_role_column_from_users', 3),
 (5, '2023_12_24_110244_add_modified_role_column_to_users', 4),
 (6, '2023_12_26_063230_create_appointments_table', 5),
-(7, '2023_12_26_071104_add_status_to_appointments_table', 6);
+(7, '2023_12_26_071104_add_status_to_appointments_table', 6),
+(8, '2024_02_12_120327_add_super_admin_role_to_users', 7);
 
 -- --------------------------------------------------------
 
@@ -155,11 +157,11 @@ INSERT INTO `password_reset_tokens` (`email`, `guard`, `token`, `created_at`) VA
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -186,7 +188,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `clinic_id` int DEFAULT NULL,
-  `role` enum('admin','staff','patient') NOT NULL
+  `role` varchar(255) NOT NULL DEFAULT 'super_admin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -198,7 +200,8 @@ INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `middleName`, `a
 (3, 'cala', 'cala', 'cala', 'cala', 'cala', 'male', 231, 'cala@gmil.com', '$2y$12$zFkMAW74AnKaQK0jYpbwU.j8DFvxzUuJwU/lwuPVK92cxKHX5irQa', '2023-12-25 06:14:25', '2023-12-25 06:14:25', 9, 'admin'),
 (4, 'staffcal', 'staffcal', 'staffcal', 'staffcal', 'staffcal', 'male', 32, 'staffcal@gmail.com', '$2y$12$WsL3h4RingBrvX7Vd4qVJOeMxHN0DRZeEThd.LloY37GjIsNQfPxi', '2023-12-25 06:18:03', '2023-12-25 06:18:03', 9, 'staff'),
 (6, 'patientcal', 'patientcal', 'patientcal', 'patientcal', 'patientcal', 'male', 32, 'patientcal@gmail.com', '$2y$12$LW0nqrZz4lt0H7ybmsbCduSnc9t3ox9TJ7UyC5BTO1jRJCjfytDfO', '2023-12-25 06:20:14', '2023-12-25 06:20:14', 9, 'patient'),
-(7, 'adminvic', 'adminvic', 'adminvic', 'adminvic', 'Victoria', 'female', 32, 'adminvic@gmail.com', '$2y$12$OXKtTtkU0fkKKOHGnBM0uO.qvbqgTn6Le/sYZ23GSAX8fMNW1uGCe', '2023-12-25 22:26:49', '2023-12-25 22:26:49', 8, 'admin');
+(7, 'adminvic', 'adminvic', 'adminvic', 'adminvic', 'Victoria', 'female', 32, 'adminvic@gmail.com', '$2y$12$OXKtTtkU0fkKKOHGnBM0uO.qvbqgTn6Le/sYZ23GSAX8fMNW1uGCe', '2023-12-25 22:26:49', '2023-12-25 22:26:49', 8, 'admin'),
+(8, 'super', 'super', 'super', 'super', 'Lalud', 'male', 21, 'superadmin@gmail.com', '$2y$12$Bt.TNSUgVULaUWTdYJ1msuhmD48r4uVO7SI.tJamnE3QE9GYvEPAW', '2024-02-12 04:12:11', '2024-02-12 04:12:11', 9, 'super_admin');
 
 --
 -- Indexes for dumped tables
@@ -263,7 +266,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `clinics`
@@ -281,7 +284,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -293,7 +296,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
