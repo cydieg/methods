@@ -115,3 +115,7 @@ Route::get('/super-admin-dashboard', function () {
     return view('superadmin.dashboard');
 })->name('super_admin.home');
 Route::post('/super-admin-logout', [SuperAdminController::class, 'logout'])->name('super_admin.logout');
+
+
+//User Dashboard
+Route::get('/UserDashboard', [PageController::class, 'showDashboard']);

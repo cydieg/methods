@@ -1,3 +1,6 @@
+@extends('back.layout.superadmin-layout')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title here')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +17,7 @@
                     <div class="card-header">Super Admin Dashboard</div>
 
                     <div class="card-body">
-                        Welcome, Super Admin! This is your dashboard.
-                        <!-- Add your super admin dashboard content here -->
-                        <form action="{{ route('super_admin.logout') }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Logout</button>
+                        Welcome, Super Admin! This is your dashboard. 
                         </form>
                     </div>
                 </div>
@@ -28,3 +27,4 @@
     <!-- Add your scripts or any other HTML content here -->
 </body>
 </html>
+@endsection

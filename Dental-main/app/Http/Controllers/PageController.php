@@ -26,6 +26,10 @@ class PageController extends Controller
         return view('map');
     }
 
+    public function showDashboard()
+    {
+        return view('userDashboard.home');
+    }
 }
 
 

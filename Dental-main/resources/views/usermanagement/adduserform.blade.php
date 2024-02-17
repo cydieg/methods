@@ -33,7 +33,7 @@
 
     <!-- Your add user form goes here -->
     <div class="card-box mb-30">
-        <h2 class="h2 pd-20">Add User</h2>
+        <h2 class="h2 pd-20" >Add User</h2>
         <div class="table-responsive">
             <div class="card-body">
                 <form action="{{ route('storeUser') }}" method="post" enctype="multipart/form-data" class="form-container">
