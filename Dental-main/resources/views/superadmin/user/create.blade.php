@@ -1,67 +1,102 @@
+@extends('back.layout.superadmin-layout')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title here')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New User</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add any necessary CSS stylesheets here -->
 </head>
 <body>
-    <h1>Create New User</h1>
-
-    <form action="{{ route('superadmin.user.store') }}" method="POST">
-        @csrf
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <div class="container">
         <br>
+        <h1>Create New User</h1>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
+        <form action="{{ route('superadmin.user.store') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
 
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName">
-        <br>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName">
-        <br>
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName">
+                    </div>
 
-        <label for="middleName">Middle Name:</label>
-        <input type="text" id="middleName" name="middleName">
-        <br>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName">
+                    </div>
+                </div>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address">
-        <br>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="middleName">Middle Name:</label>
+                        <input type="text" class="form-control" id="middleName" name="middleName">
+                    </div>
 
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        <br>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" id="address" name="address">
+                    </div>
 
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age">
-        <br>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
 
-        <label for="role">Role:</label>
-        <select id="role" name="role">
-            <option value="admin">Admin</option>
-            <option value="patient">Patient</option>
-            <option value="staff">Staff</option>
-            <option value="super_admin">Super Admin</option> <!-- Add Super Admin option -->
-        </select>
-        <br>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" class="form-control" id="age" name="age">
+                    </div>
 
-        <!-- Add other fields as needed -->
+                    <div class="form-group">
+                        <label for="role">Role:</label>
+                        <select class="form-control" id="role" name="role">
+                            <option value="admin">Admin</option>
+                            <option value="patient">Patient</option>
+                            <option value="staff">Staff</option>
+                            <option value="super_admin">Super Admin</option> <!-- Add Super Admin option -->
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-        <button type="submit">Submit</button>
-    </form>
+            <!-- Add other fields as needed -->
+
+            <div class="row">
+                <div class="col-md-12 offset-md-12"> <!-- Offset by 6 columns to push to the right -->
+                    <button type="submit" class="btn btn-primary btn custom-submit-btn">Submit</button> <br><!-- Use btn-block to make button full-width -->
+                </div>
+                <br>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Link Bootstrap JS and any other necessary scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+@endsection

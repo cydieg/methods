@@ -1,4 +1,6 @@
-
+@extends('back.layout.superadmin-layout')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title here')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,15 +36,13 @@
                                 <td>{{ $clinic->status }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                        <button class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" type="button" id="dropdownMenuButton{{ $clinic->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="dw dw-more"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ $clinic->id }}">
                                             <button class="dropdown-item" type="button"><i class="dw dw-edit2"></i> Edit</button>
-                                            
-                                            <button class="dropdown-item" type="button"><i class="dw dw-archive"></i> Archive</button>
+                                            <button class="dropdown-item" type="button"><i class="dw dw-delete-3"></i> Archive</button>
                                         </div>
-                                        
                                     </div>
                                 </td>
                             </tr>
@@ -55,3 +55,4 @@
         </div>
     </div>
 </body>
+@endsection

@@ -473,8 +473,6 @@
 							<ul class="submenu">
 								<li>				
 									<a href="{{ route('superadmin.user.index') }}">Manage Users</a>
-
-                            <a href="">Assign Doctors</a>
 						</li>
 						</ul>
 
@@ -507,7 +505,7 @@
 
 
 			<div class="main-container">
-				<div class="card-box mb-30">
+				<div class="card-box mb-50">
 					@yield('content')
 				</div>
 			</div>
