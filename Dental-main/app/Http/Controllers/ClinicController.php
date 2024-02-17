@@ -14,14 +14,9 @@ use Illuminate\Http\Request;
 class ClinicController extends Controller
 {
     public function createForm()
-{
-    // Fetch all clinics from the database
-    $clinics = Clinic::all();
-
-    // Pass the clinics to the view
-    return view('create_clinic', compact('clinics'));
-
-}
+    {
+        return view('clinics.addclinic');
+    }
 
 public function create(Request $request)
 {
@@ -38,13 +33,13 @@ public function create(Request $request)
     return redirect()->route('clinic.create.form')->with('success', 'Clinic created successfully');
 }
 
-public function view()
+public function viewClinics()
 {
     // Retrieve all clinics from the database
     $clinics = Clinic::all();
 
-    // Pass the clinics data to the view
-    return view('view_clinics', compact('clinics'));
+    // Return the view for clinic listing
+    return view('clinics.clinicview', compact('clinics'));
 }
 
 public function archive($id)
@@ -63,11 +58,11 @@ public function editForm($id)
 {
     $clinic = Clinic::find($id);
 
-    if ($clinic) {
-        return view('edit_clinic', compact('clinic'));
+    if (!$clinic) {
+        return redirect()->route('clinic.view')->with('error', 'Clinic not found');
     }
 
-    return redirect()->route('clinic.view')->with('error', 'Clinic not found');
+    return view('clinics.edit', compact('clinic'));
 }
 
 public function update(Request $request, $id)
@@ -88,5 +83,4 @@ public function update(Request $request, $id)
 
     return redirect()->route('clinic.view')->with('error', 'Clinic not found');
 }
-
 }

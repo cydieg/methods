@@ -63,12 +63,14 @@ Route::group(['prefix' => 'user'], function () {
 
 
 // Clinic routes
-Route::get('/create-clinic', [ClinicController::class, 'createForm'])->name('clinic.create.form');
-Route::post('/create-clinic', [ClinicController::class, 'create'])->name('clinic.create');
-Route::get('/view-clinics', [ClinicController::class, 'view'])->name('clinic.view');
-Route::get('/edit-clinic/{id}', [ClinicController::class, 'editForm'])->name('clinic.edit.form');
-Route::put('/update-clinic/{id}', [ClinicController::class, 'update'])->name('clinic.update');
-Route::delete('/archive-clinic/{id}', [ClinicController::class, 'archive'])->name('clinic.archive');
+Route::get('/clinics/view', [ClinicController::class, 'viewClinics'])->name('clinics.view');
+Route::get('/clinics/create', [ClinicController::class, 'createForm'])->name('clinic.create.form');
+Route::post('/clinics/create', [ClinicController::class, 'create'])->name('clinic.create');
+
+
+
+
+
 
 //CLIENT side//
 

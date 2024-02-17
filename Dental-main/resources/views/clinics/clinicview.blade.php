@@ -1,8 +1,3 @@
-<!-- resources/views/view_clinics.blade.php -->
-
-@extends('back.layout.main-layout')
-@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title here')
-@section('content')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,15 +38,11 @@
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <form style="display: inline-block;" action="{{ route('clinic.edit.form', ['id' => $clinic->id]) }}" method="get">
-                                                <button class="dropdown-item" type="submit"><i class="dw dw-edit2"></i> Edit</button>
-                                            </form>
-                                            <form style="display: inline-block;" action="{{ route('clinic.archive', ['id' => $clinic->id]) }}" method="post">
-                                                @csrf
-                                                @method('delete') <!-- Use DELETE method for delete operation -->
-                                                <button class="dropdown-item" type="submit"><i class="dw dw-delete-3"></i> Archive</button>
-                                            </form>
+                                            <button class="dropdown-item" type="button"><i class="dw dw-edit2"></i> Edit</button>
+                                            
+                                            <button class="dropdown-item" type="button"><i class="dw dw-archive"></i> Archive</button>
                                         </div>
+                                        
                                     </div>
                                 </td>
                             </tr>
@@ -64,6 +55,3 @@
         </div>
     </div>
 </body>
-
-</html>
-@endsection
