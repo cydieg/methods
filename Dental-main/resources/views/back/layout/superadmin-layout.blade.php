@@ -472,7 +472,8 @@
 							<!-- Add the button to navigate to the route for managing users -->	
 							<ul class="submenu">
 								<li>				
-							<a href="">Manage Users</a>
+									<a href="{{ route('superadmin.user.index') }}">Manage Users</a>
+
                             <a href="">Assign Doctors</a>
 						</li>
 						</ul>

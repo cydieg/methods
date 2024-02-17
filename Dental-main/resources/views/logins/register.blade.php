@@ -105,6 +105,7 @@
                     <select class="form-control form-control-lg" id="role" name="role" required>
                         <option value="admin">Admin</option>
                         <option value="patient">Patient</option>
+                        <option value="staff">Staff</option>
                         <option value="super_admin">Super Admin</option> <!-- Add Super Admin option -->
                     </select>
                     <div class="input-group-append custom">

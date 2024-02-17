@@ -11,6 +11,8 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\SuperAdmin\UserManagementController;
+
 
 
 /*
@@ -121,3 +123,12 @@ Route::post('/super-admin-logout', [SuperAdminController::class, 'logout'])->nam
 
 //User Dashboard
 Route::get('/UserDashboard', [PageController::class, 'showDashboard']);
+Route::prefix('superadmin')->group(function () {
+    Route::get('users', [UserManagementController::class, 'index'])->name('superadmin.user.index');
+    Route::get('users/create', [UserManagementController::class, 'create'])->name('superadmin.user.create');
+    Route::post('users', [UserManagementController::class, 'store'])->name('superadmin.user.store');
+    Route::get('users/{id}', [UserManagementController::class, 'show'])->name('superadmin.user.show');
+    Route::get('users/{id}/edit', [UserManagementController::class, 'edit'])->name('superadmin.user.edit');
+    Route::put('users/{id}', [UserManagementController::class, 'update'])->name('superadmin.user.update');
+    Route::delete('users/{id}', [UserManagementController::class, 'destroy'])->name('superadmin.user.destroy');
+});
