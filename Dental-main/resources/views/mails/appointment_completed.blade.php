@@ -14,7 +14,7 @@
         <p>Your appointment scheduled for {{ $appointment->appointment_date }} at {{ $appointment->appointment_time }} has been completed successfully.</p>
         <p>Thank you for choosing our service.</p>
         <p>Best regards,</p>
-        <p>{{ config('app.name') }}</p>
+        <p>Dr. Wendell Cabrera</p>
     </div>
 </body>
 

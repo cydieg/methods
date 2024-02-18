@@ -6,5 +6,5 @@ Hi {{ $user->firstName }},
 Thank you for registering with us.
 
 Regards,<br>
-{{ config('app.name') }}
+<p>Dr. Wendell Cabrera</p>
 @endcomponent
