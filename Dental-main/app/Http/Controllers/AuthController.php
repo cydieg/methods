@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Clinic; // Update the import statement
-
+use Illuminate\Support\Facades\Mail; // Add this line for Mail
+use App\Mail\UserRegistered; // Add this line for the Mailable class
 class AuthController extends Controller
 {
     public function showRegistrationForm()
@@ -41,12 +42,16 @@ class AuthController extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         // Create a new user using the User model
-        User::create($validatedData);
+        $user = User::create($validatedData);
+
+        // Send email notification
+        Mail::to($user->email)->send(new UserRegistered($user));
 
         // Add any additional registration logic here (e.g., sending emails, etc.)
 
         return redirect()->route('login.form');
     }
+
 
     public function showLoginForm()
     {

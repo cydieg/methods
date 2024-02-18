@@ -32,6 +32,9 @@ class StaffController extends Controller
         try {
             $appointment->update(['status' => 'completed']);
 
+            // Send email notification
+            Mail::to($appointment->user->email)->send(new AppointmentCompleted($appointment));
+
             return redirect()->route('staff')->with('success', 'Appointment completed successfully');
         } catch (\Exception $e) {
             // Log or handle the exception
