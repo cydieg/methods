@@ -15,6 +15,7 @@
                     <!-- Add more content as needed -->
 
                     <h2>Pending Appointments</h2>
+                    @if(count($pendingAppointments) > 0)
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -40,6 +41,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @else
+                    <p>No pending appointments found.</p>
+                    @endif
                 </div>
             </div>
         </div>

@@ -2,30 +2,45 @@
 
 namespace App\Http\Controllers;
 use App\Models\Appointment;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
     public function index()
     {
-        // Get pending appointments
-        $pendingAppointments = Appointment::where('status', 'pending')->get();
-
-        return view('staff.staff', compact('pendingAppointments'));
+        try {
+            // Get the authenticated user
+            $user = Auth::user();
+    
+            // Retrieve appointments for the designated clinic only
+            $pendingAppointments = Appointment::where('status', 'pending')
+                ->whereHas('clinic', function ($query) use ($user) {
+                    $query->where('id', $user->clinic_id); // Assuming clinic_id is the foreign key in appointments table
+                })
+                ->get();
+    
+            return view('staff.staff', compact('pendingAppointments'));
+        } catch (\Exception $e) {
+            // Log or handle the exception
+            return back()->with('error', 'An error occurred while retrieving appointments.');
+        }
     }
 
-    // Add the method to complete appointments
     public function completeAppointment(Appointment $appointment)
     {
-        $appointment->update(['status' => 'completed']);
+        try {
+            $appointment->update(['status' => 'completed']);
 
-        return redirect()->route('staff')->with('success', 'Appointment completed successfully');
+            return redirect()->route('staff')->with('success', 'Appointment completed successfully');
+        } catch (\Exception $e) {
+            // Log or handle the exception
+            return back()->with('error', 'An error occurred while completing the appointment.');
+        }
     }
 
     public function homeStaff()
     {
         return view('staff.homeStaff');
     }
-    
 }
