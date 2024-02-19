@@ -136,5 +136,6 @@ Route::prefix('superadmin')->group(function () {
     Route::get('users/{id}', [UserManagementController::class, 'show'])->name('superadmin.user.show');
     Route::get('users/{id}/edit', [UserManagementController::class, 'edit'])->name('superadmin.user.edit');
     Route::put('users/{id}', [UserManagementController::class, 'update'])->name('superadmin.user.update');
-    Route::delete('users/{id}', [UserManagementController::class, 'destroy'])->name('superadmin.user.destroy');
+    Route::delete('/superadmin/user/{id}/archive', [UserManagementController::class, 'archive'])->name('superadmin.user.archive');
+
 });

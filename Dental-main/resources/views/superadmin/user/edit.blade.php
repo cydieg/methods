@@ -83,6 +83,14 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Leave blank to keep the current password">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-6">
                     <div class="form-group"><br>
                         <button type="submit" class="btn btn-primary">Update User</button>
                     </div>

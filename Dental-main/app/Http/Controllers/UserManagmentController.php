@@ -12,11 +12,11 @@ class UserManagmentController extends Controller
     // Display user table
     public function index()
     {
-        $user_table = User::all();
+        // Retrieve users except those with the role of "super_admin"
+        $user_table = User::where('role', '!=', 'super_admin')->get();
+    
         return view('usermanagement.usertable', compact('user_table'));
-
     }
-
     // Edit user
     public function editUser($id)
     {

@@ -54,6 +54,11 @@
                             <td>
                                 <a href="{{ route('superadmin.user.edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit</a>
                                 <!-- Add other action buttons here, e.g., delete -->
+                                <form action="{{ route('superadmin.user.archive', ['id' => $user->id]) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to archive this user?')">Archive</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

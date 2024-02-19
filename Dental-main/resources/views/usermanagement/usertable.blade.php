@@ -11,6 +11,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Email</th>
+                    <th>Role</th>
                     <th>Clinic Location</th>
                     <th>Created At</th>
                     <th>Action</th>
@@ -22,7 +23,8 @@
                 <tr>
                     <td>{{ $items->username }}</td>
                     <td>{{ $items->email }}</td>
-                    <td>{{ $items->clinic->name ?? 'N/A' }}</td> <!-- Assuming 'name' is the clinic attribute -->
+                    <td>{{ $items->role }}</td>
+                    <td>{{ $items->clinic->name ?? 'N/A' }}</td>
                     <td>{{ $items->created_at }}</td>
                     <td>
                         <div class="dropdown">
@@ -59,7 +61,4 @@
     }
 </script>
 
-</body>
-
-</html>
 @endsection

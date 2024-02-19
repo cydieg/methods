@@ -25,14 +25,23 @@ class UserManagementController extends Controller
 
     // Update user for super admin
     public function update(Request $request, $id)
-    {
-        // Validation if needed
+{
+    // Validation if needed
 
-        $user = User::findOrFail($id);
-        $user->update($request->all()); // Update user data
+    $user = User::findOrFail($id);
+    $userData = $request->except(['_token', '_method']); // Exclude token and method from request data
 
-        return redirect()->route('superadmin.user.index')->with('success', 'User updated successfully');
+    // Check if password field is empty, if not, update password
+    if (empty($userData['password'])) {
+        unset($userData['password']); // Remove password from data if it's empty
+    } else {
+        $userData['password'] = bcrypt($userData['password']); // Hash the new password
     }
+
+    $user->update($userData); // Update user data
+
+    return redirect()->route('superadmin.user.index')->with('success', 'User updated successfully');
+}
 
     // Add user for super admin
     public function create()
@@ -75,12 +84,14 @@ class UserManagementController extends Controller
         return view('superadmin.user.show', compact('user'));
     }
 
-    // Delete user for super admin
-    public function destroy($id)
+    
+    public function archive($id)
     {
         $user = User::findOrFail($id); // Find user by ID
-        $user->delete(); // Delete user
-
-        return redirect()->route('superadmin.user.index')->with('success', 'User deleted successfully');
+        // Archive user logic here, e.g., updating a column in the database
+        // Example: $user->update(['archived' => true]);
+        $user->delete(); // Delete the user
+        
+        return redirect()->route('superadmin.user.index')->with('success', 'User archived successfully');
     }
 }
