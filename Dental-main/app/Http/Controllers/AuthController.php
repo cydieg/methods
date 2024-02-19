@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Clinic; // Update the import statement
-use Illuminate\Support\Facades\Mail; // Add this line for Mail
-use App\Mail\UserRegistered; // Add this line for the Mailable class
+use App\Models\Clinic; 
+use Illuminate\Support\Facades\Mail; 
+use App\Mail\UserRegistered; 
 class AuthController extends Controller
 {
     public function showRegistrationForm()
@@ -21,7 +21,7 @@ class AuthController extends Controller
         return view('logins.register', compact('clinics')); // Update the variable name
     }
 
-    public function register(Request $request)
+        public function register(Request $request)
     {
         // Validate the form data
         $validatedData = $request->validate([
@@ -33,21 +33,19 @@ class AuthController extends Controller
             'gender' => 'required|in:male,female,other',
             'age' => 'required|integer',
             'email' => 'required|email|max:50',
-            'role' => 'required|in:super_admin,admin,staff,patient', // Include super_admin
+            'role' => 'required|in:super_admin,admin,staff,patient',
             'password' => 'required|string|max:255',
-            'clinic_id' => 'required|exists:clinics,id', // Change 'branch_id' to 'clinic_id'
+            'clinic_id' => $request->role === 'patient' ? 'nullable' : 'required|exists:clinics,id', 
         ]);
 
-        // Hash the password before creating the user
+        // Hash the password
         $validatedData['password'] = bcrypt($validatedData['password']);
 
-        // Create a new user using the User model
+        // Create the user
         $user = User::create($validatedData);
 
-        // Send email notification
+        // Send registration email
         Mail::to($user->email)->send(new UserRegistered($user));
-
-        // Add any additional registration logic here (e.g., sending emails, etc.)
 
         return redirect()->route('login.form');
     }

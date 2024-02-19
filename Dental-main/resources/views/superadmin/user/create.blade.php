@@ -1,6 +1,7 @@
 @extends('back.layout.superadmin-layout')
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title here')
 @section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,30 +27,44 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="middleName">Middle Name:</label>
+                        <input type="text" class="form-control" id="middleName" name="middleName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" class="form-control" id="age" name="age">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clinic">Clinic:</label>
+                        <select class="form-control" id="clinic" name="clinic_id">
+                            @foreach($clinics as $clinic)
+                                <option value="{{ $clinic->id }}">{{ $clinic->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-
-                    <div class="form-group">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName">
-                    </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="middleName">Middle Name:</label>
-                        <input type="text" class="form-control" id="middleName" name="middleName">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName">
                     </div>
 
                     <div class="form-group">
@@ -66,27 +81,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="age">Age:</label>
-                        <input type="number" class="form-control" id="age" name="age">
-                    </div>
-
-                    <div class="form-group">
                         <label for="role">Role:</label>
                         <select class="form-control" id="role" name="role">
                             <option value="admin">Admin</option>
                             <option value="patient">Patient</option>
                             <option value="staff">Staff</option>
-                            <option value="super_admin">Super Admin</option> <!-- Add Super Admin option -->
+                            <option value="super_admin">Super Admin</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <!-- Add other fields as needed -->
-
             <div class="row">
-                <div class="col-md-12 offset-md-12"> <!-- Offset by 6 columns to push to the right -->
-                    <button type="submit" class="btn btn-primary btn custom-submit-btn">Submit</button> <br><!-- Use btn-block to make button full-width -->
+                <div class="col-md-12 offset-md-12">
+                    <button type="submit" class="btn btn-primary btn custom-submit-btn">Submit</button>
                 </div>
                 <br>
             </div>
@@ -99,4 +107,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 @endsection

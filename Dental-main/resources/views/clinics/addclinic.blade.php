@@ -48,6 +48,13 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="doctor_name">Doctor Name:</label>
+                        <input type="text" class="form-control" name="doctor_name" id="doctor_name" value="{{ old('doctor_name') }}">
+                        @error('doctor_name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button><br>

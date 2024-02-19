@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clinic extends Model
 {
-    protected $fillable = ['name', 'location', 'contact', 'status', 'user_id'];
+    protected $fillable = ['name', 'location', 'contact', 'status', 'doctor_name']; // Add 'doctor_name' to the fillable array
 
     // Define the inverse relationship with the 'User' model
     public function user()

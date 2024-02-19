@@ -24,6 +24,7 @@
                             <th>Location</th>
                             <th>Contact Number</th>
                             <th>Status</th>
+                            <th>Doctor Name</th> <!-- Display Doctor Name -->
                             <th>Action</th> <!-- New column for actions -->
                         </tr>
                     </thead>
@@ -34,14 +35,20 @@
                                 <td>{{ $clinic->location }}</td>
                                 <td>{{ $clinic->contact }}</td>
                                 <td>{{ $clinic->status }}</td>
+                                <td>{{ $clinic->doctor_name }}</td> <!-- Display Doctor Name -->
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" type="button" id="dropdownMenuButton{{ $clinic->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="dw dw-more"></i>
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ $clinic->id }}">
-                                            <button class="dropdown-item" type="button"><i class="dw dw-edit2"></i> Edit</button>
-                                            <button class="dropdown-item" type="button"><i class="dw dw-delete-3"></i> Archive</button>
+                                            <button class="dropdown-item" type="button" onclick="window.location='{{ route('clinic.edit', $clinic->id) }}'"><i class="dw dw-edit2"></i> Edit</button>
+
+                                            <form method="POST" action="{{ route('clinic.archive', $clinic->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item"><i class="dw dw-delete-3"></i> Archive</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </td>

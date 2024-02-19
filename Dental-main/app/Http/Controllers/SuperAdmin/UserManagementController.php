@@ -37,19 +37,37 @@ class UserManagementController extends Controller
     // Add user for super admin
     public function create()
     {
-        return view('superadmin.user.create');
+        $clinics = Clinic::all(); // Retrieve all clinics
+        return view('superadmin.user.create', compact('clinics'));
     }
 
     // Store user for super admin
     public function store(Request $request)
     {
         // Validation if needed
-
-        User::create($request->all()); // Create new user
-
+        $validatedData = $request->validate([
+            'username' => 'required|string|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:6',
+            'firstName' => 'nullable|string',
+            'lastName' => 'nullable|string',
+            'middleName' => 'nullable|string',
+            'address' => 'nullable|string',
+            'gender' => 'nullable|in:male,female',
+            'age' => 'nullable|integer|min:0',
+            'role' => 'required|string|in:admin,patient,staff,super_admin',
+            'clinic_id' => 'nullable|exists:clinics,id',
+        ]);
+    
+        // Hash the password
+        $validatedData['password'] = bcrypt($validatedData['password']);
+    
+        // Create new user
+        User::create($validatedData);
+    
         return redirect()->route('superadmin.user.index')->with('success', 'User created successfully');
     }
-
+    
     // Show user details for super admin
     public function show($id)
     {

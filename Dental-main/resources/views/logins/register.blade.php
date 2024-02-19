@@ -90,14 +90,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="clinic_id">Clinic:</label>
-            <select class="form-control" id="clinic_id" name="clinic_id" required>
-                @foreach($clinics as $clinic)
-                    <option value="{{ $clinic->id }}">{{ $clinic->name }}</option>
-                @endforeach
-            </select>
-        </div>
+        <!-- Removed the clinic selection field -->
 
         <div class="row mb-3">
             <div class="col-md-6">
@@ -115,6 +108,7 @@
             </div>
         </div>
         
+        <div class="row mb-3">
             <div class="col-md-6">
                 <div class="input-group custom">
                     <input type="password" class="form-control form-control-lg" placeholder="Password" name="password" required>
