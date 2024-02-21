@@ -60,6 +60,7 @@
 					<li><a href="{{ route('home1') }}">Home</a></li>
 					<li><a href="{{ route('about2') }}">About</a></li>
 					<li><a href="{{ route('dentalClinic2') }}">Clinics</a></li>
+					
 					</ul>
             </div>
             <ul class="nav header-navbar-rht">

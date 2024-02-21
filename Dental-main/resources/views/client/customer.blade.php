@@ -3,7 +3,6 @@
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Make an Appointment')
 
 @section('content')
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +29,9 @@
             @if(session('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}
+                    @if(session('status') == 'pending')
+                        Please wait for a notification in your email.
+                    @endif
                 </div>
             @elseif(session('error'))
                 <div class="alert alert-danger" role="alert">
@@ -66,7 +68,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-info btn-block">Make Appointment</button>
+            <button type="submit" class="btn btn-info btn-block">Request  Appointment</button>
         </form>
     </div>
 </body>
