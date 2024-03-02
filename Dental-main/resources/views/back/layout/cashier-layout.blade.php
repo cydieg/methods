@@ -471,7 +471,14 @@
 						<li class="dropdown">
 							<a href="{{ route('staff') }}" class="dropdown-toggle no-arrow">
 								<i class="micon bi bi-calendar"></i>
-								<span class="mtext">Appointment</span>
+								<span class="mtext">Pending Appointment</span>
+							</a>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle no-arrow">
+								<i class="micon bi bi-calendar"></i>
+								<span class="mtext">Competed
+									<br>Appointment</span>
 							</a>
 						</li>
 					</ul>

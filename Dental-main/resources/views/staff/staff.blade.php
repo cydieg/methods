@@ -34,7 +34,7 @@
                                     <td>
                                         <form method="POST" action="{{ route('complete.appointment', $appointment) }}">
                                             @csrf
-                                            <button type="submit" class="btn btn-success">Complete</button>
+                                            <button type="submit" class="btn btn-success">Accept Appointment</button>
                                         </form>
                                     </td>
                                 </tr>

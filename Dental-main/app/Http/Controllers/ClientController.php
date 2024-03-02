@@ -9,53 +9,47 @@ use App\Models\Appointment;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Clinic;
 
-
 class ClientController extends Controller
 {
     public function customer()
     {
-        // Get the authenticated user's clinic ID
         $clinicId = Auth::user()->clinic_id;
-    
-        // Retrieve appointments only for the user's clinic
         $appointments = Auth::user()->appointments()->whereHas('user', function ($query) use ($clinicId) {
             $query->where('clinic_id', $clinicId);
         })->get();
-    
-        // Retrieve all clinics
         $clinics = Clinic::all();
-    
-        // No need for redirects here
         return view('client.customer', compact('appointments', 'clinics'));
     }
 
     public function store(Request $request)
     {
-        // Validate the request
         $request->validate([
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
             'appointment_date' => 'required|date',
-            'appointment_time' => 'required|date_format:H:i',
-            'clinic_id' => 'required|exists:clinics,id', // Add validation for clinic_id
+            'appointment_time' => 'required|string|in:08:00,09:00,10:00,11:00,13:00,15:00,17:00',
+            'clinic_id' => 'required|exists:clinics,id',
         ]);
     
-        // Determine the appointment status based on the button clicked
-        $status = $request->input('status', 'pending');
+        $status = 'pending';
     
-        // Create a new appointment with the determined status and clinic ID
-        Auth::user()->appointments()->create([
-            'first_name' => $request->input('first_name'),
-            'last_name' => $request->input('last_name'),
+        $user = Auth::user();
+    
+        // Ensure the user has first name and last name
+        if (!$user->firstName || !$user->lastName) {
+            return redirect()->back()->with('error', 'Please update your profile with your first name and last name before making an appointment.');
+        }
+    
+        $appointmentData = [
             'appointment_date' => $request->input('appointment_date'),
             'appointment_time' => $request->input('appointment_time'),
-            'clinic_id' => $request->input('clinic_id'), // Add clinic_id
-            'user_id' => Auth::id(),
+            'clinic_id' => $request->input('clinic_id'),
             'status' => $status,
-        ]);
+            'first_name' => $user->firstName,
+            'last_name' => $user->lastName,
+        ];
     
-        // Redirect to the index page with a success message
-        return redirect()->route('customer')->with('success', 'Appointment ' . ($status == 'pending' ? 'requested' : 'completed') . ' successfully. Please wait for a notification in your email.');
+        $user->appointments()->create($appointmentData);
+    
+        return redirect()->route('customer')->with('success', 'Appointment requested successfully. Please wait for a notification in your email.');
     }
     
 public function home1()

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 20, 2024 at 01:27 PM
+-- Generation Time: Feb 22, 2024 at 01:51 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -52,7 +52,9 @@ INSERT INTO `appointments` (`id`, `first_name`, `last_name`, `appointment_date`,
 (5, 'Erzie', 'Bongo', '2024-02-19', '23:08:00', '2024-02-19 07:03:07', '2024-02-19 07:03:07', 12, 'pending', 16),
 (6, 'Erzie', 'Bongo', '2024-02-20', '12:04:00', '2024-02-19 07:04:45', '2024-02-19 07:04:45', 12, 'pending', 16),
 (7, 'Wendell', 'Bongo', '2024-02-19', '23:06:00', '2024-02-19 07:06:16', '2024-02-19 07:06:16', 12, 'pending', 16),
-(8, 'bongo', 'banga', '2024-02-27', '23:12:00', '2024-02-19 07:10:48', '2024-02-19 07:10:48', 12, 'pending', 16);
+(8, 'bongo', 'banga', '2024-02-27', '23:12:00', '2024-02-19 07:10:48', '2024-02-19 07:10:48', 12, 'pending', 16),
+(9, 'Test', 'TEst', '2024-02-21', '08:38:00', '2024-02-21 04:38:20', '2024-02-21 04:38:20', 12, 'pending', 16),
+(10, 'Wendell', 'Genchana', '2024-02-22', '21:50:00', '2024-02-21 17:48:12', '2024-02-21 17:48:12', 12, 'pending', 16);
 
 -- --------------------------------------------------------
 
@@ -275,7 +277,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `clinics`

@@ -14,14 +14,19 @@ class StaffController extends Controller
         try {
             // Get the authenticated user
             $user = Auth::user();
-    
+
             // Retrieve appointments for the designated clinic only
             $pendingAppointments = Appointment::where('status', 'pending')
                 ->whereHas('clinic', function ($query) use ($user) {
-                    $query->where('id', $user->clinic_id); // Assuming clinic_id is the foreign key in appointments table
+                    $query->where('id', $user->clinic_id);
                 })
                 ->get();
-    
+
+            // Filter out completed appointments
+            $pendingAppointments = $pendingAppointments->reject(function ($appointment) {
+                return $appointment->status === 'completed';
+            });
+
             return view('staff.staff', compact('pendingAppointments'));
         } catch (\Exception $e) {
             // Log or handle the exception
@@ -30,20 +35,21 @@ class StaffController extends Controller
     }
 
     public function completeAppointment(Appointment $appointment)
-    {
-        try {
-            $appointment->update(['status' => 'completed']);
+{
+    try {
+        // Send email notification
+        Mail::to($appointment->user->email)->send(new AppointmentCompleted($appointment));
 
-            // Send email notification
-            Mail::to($appointment->user->email)->send(new AppointmentCompleted($appointment));
+        // Update appointment status to 'accepted'
+        $appointment->update(['status' => 'accepted']);
 
-            return redirect()->route('staff')->with('success', 'Appointment completed successfully');
-        } catch (\Exception $e) {
-            // Log or handle the exception
-            return back()->with('error', 'An error occurred while completing the appointment.');
-        }
+        // Redirect with success message
+        return redirect()->route('staff')->with('success', 'Appointment accepted successfully');
+    } catch (\Exception $e) {
+        // Log or handle the exception
+        return back()->with('error', 'An error occurred while accepting the appointment.');
     }
-
+}
     public function homeStaff()
     {
         return view('staff.homeStaff');
