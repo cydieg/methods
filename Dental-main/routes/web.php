@@ -9,7 +9,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ClientController;  
 use App\Http\Controllers\StaffController;
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\SuperAdmin\UserManagementController;
 
@@ -96,13 +95,15 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-//apointment routes
+//Staff apointment routes
 Route::get('/staff', [StaffController::class, 'index'])->name('staff');
 Route::get('/homeStaff', [StaffController::class, 'homeStaff'])->name('homeStaff');
 Route::post('/complete-appointment/{appointment}', [StaffController::class, 'completeAppointment'])->name('complete.appointment');
-
-
+Route::get('/staff/acceptedappoint', [StaffController::class, 'acceptedAppointments'])->name('staff.acceptedappoint');
+Route::post('/accept-appointment/{appointment}', [StaffController::class, 'pendingAppointment'])->name('accept.appointment');
 Route::get('/logout', [AuthController::class, 'logout'])->name('manual.logout');
+Route::post('/complete-appointment/{appointment}', [StaffController::class, 'completeAppointment'])->name('complete.appointment');
+
 
 //landingpage
 Route::get('/home', [PageController::class, 'home'])->name('home');
@@ -113,13 +114,7 @@ Route::get('/map', [PageController::class, 'map'])->name('map');
 
 
 
-Route::middleware(['auth'])->group(function () {
-    // Other authenticated routes...
 
-    Route::prefix('appointment')->group(function () {
-        Route::get('completed', [AppointmentController::class, 'completedAppointments'])->name('appointment.completed');
-    });
-});
 //super admin routes
 Route::get('/super-admin-dashboard', function () {
     return view('superadmin.dashboard');

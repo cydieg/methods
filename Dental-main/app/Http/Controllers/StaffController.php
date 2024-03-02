@@ -34,13 +34,13 @@ class StaffController extends Controller
         }
     }
 
-    public function completeAppointment(Appointment $appointment)
+    public function pendingAppointment(Appointment $appointment) //this is where pending appointment
 {
     try {
         // Send email notification
         Mail::to($appointment->user->email)->send(new AppointmentCompleted($appointment));
 
-        // Update appointment status to 'accepted'
+        // Update appointment status to 'accepted' for pending appointments
         $appointment->update(['status' => 'accepted']);
 
         // Redirect with success message
@@ -50,8 +50,40 @@ class StaffController extends Controller
         return back()->with('error', 'An error occurred while accepting the appointment.');
     }
 }
+    public function acceptedAppointments() //this will show the accepeted appointment
+        {
+            try {
+                // Get the authenticated user
+                $user = Auth::user();
+
+                // Retrieve accepted appointments with user information
+                $acceptedAppointments = Appointment::where('status', 'accepted')
+                    ->where('clinic_id', $user->clinic_id)
+                    ->with('user') // Eager load user information
+                    ->get();
+
+                return view('staff.acceptedappoint', compact('acceptedAppointments'));
+            } catch (\Exception $e) {
+                // Log or handle the exception
+                return back()->with('error', 'An error occurred while retrieving accepted appointments.');
+            }
+        }
+        public function completeAppointment(Appointment $appointment)
+{
+    try {
+        // Update appointment status to 'completed'
+        $appointment->update(['status' => 'completed']);
+
+        // Redirect with success message
+        return redirect()->route('staff.acceptedappoint')->with('success', 'Appointment completed successfully');
+    } catch (\Exception $e) {
+        // Log or handle the exception
+        return back()->with('error', 'An error occurred while completing the appointment.');
+    }
+}
     public function homeStaff()
     {
         return view('staff.homeStaff');
     }
+    
 }

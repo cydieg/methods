@@ -475,12 +475,12 @@
 							</a>
 						</li>
 						<li class="dropdown">
-							<a class="dropdown-toggle no-arrow">
+							<a href="{{ route('staff.acceptedappoint') }}" class="dropdown-toggle no-arrow">
 								<i class="micon bi bi-calendar"></i>
-								<span class="mtext">Competed
-									<br>Appointment</span>
+								<span class="mtext">Accepted Appointments</span>
 							</a>
 						</li>
+						
 					</ul>
 				</div>
 			</div>

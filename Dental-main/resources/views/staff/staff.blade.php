@@ -32,7 +32,7 @@
                                     <td>{{ $appointment->appointment_date }}</td>
                                     <td>{{ $appointment->appointment_time }}</td>
                                     <td>
-                                        <form method="POST" action="{{ route('complete.appointment', $appointment) }}">
+                                        <form method="POST" action="{{ route('accept.appointment', $appointment) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-success">Accept Appointment</button>
                                         </form>
