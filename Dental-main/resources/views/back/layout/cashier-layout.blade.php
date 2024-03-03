@@ -248,9 +248,10 @@
 							data-toggle="dropdown"
 						>
 							<span class="user-icon">
-								<img src="/back/images/cydiepic.jpg" alt="" />
+								<img src="/back/images/icon.jpg" alt="" />
 							</span>
-							<span class="user-name"> Cydie S. Gargullo</span>
+							<span class="user-name">{{ auth()->user()->firstName }} {{ auth()->user()->lastName }}</span>
+
 						</a>
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"

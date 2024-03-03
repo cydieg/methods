@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +35,11 @@
                                 <form method="POST" action="{{ route('complete.appointment', $appointment) }}">
                                     @csrf
                                     <button type="submit">Completed</button>
+                                </form>
+                                <form method="POST" action="{{ route('staff.cancel', $appointment->id) }}">
+                                    @csrf
+                                    @method('PUT') <!-- Using PUT method for updating -->
+                                    <button type="submit">Cancel</button>
                                 </form>
                             @endif
                         </td>

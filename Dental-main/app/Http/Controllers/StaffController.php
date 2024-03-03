@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentCompleted;
+use App\Mail\AppointmentCancelled; 
 
 class StaffController extends Controller
 {
@@ -69,21 +70,37 @@ class StaffController extends Controller
             }
         }
         public function completeAppointment(Appointment $appointment)
-{
-    try {
-        // Update appointment status to 'completed'
-        $appointment->update(['status' => 'completed']);
+    {
+        try {
+            // Update appointment status to 'completed'
+            $appointment->update(['status' => 'completed']);
 
-        // Redirect with success message
-        return redirect()->route('staff.acceptedappoint')->with('success', 'Appointment completed successfully');
-    } catch (\Exception $e) {
-        // Log or handle the exception
-        return back()->with('error', 'An error occurred while completing the appointment.');
+            // Redirect with success message
+            return redirect()->route('staff.acceptedappoint')->with('success', 'Appointment completed successfully');
+        } catch (\Exception $e) {
+            // Log or handle the exception
+            return back()->with('error', 'An error occurred while completing the appointment.');
+        }
     }
-}
     public function homeStaff()
     {
         return view('staff.homeStaff');
+    }
+    public function cancelAppointment(Appointment $appointment)
+    {
+        try {
+            // Update appointment status to 'canceled'
+            $appointment->update(['status' => 'canceled']);
+    
+            // Send email notification
+            Mail::to($appointment->user->email)->send(new AppointmentCancelled($appointment));
+    
+            // Redirect with success message
+            return redirect()->route('staff')->with('success', 'Appointment canceled successfully');
+        } catch (\Exception $e) {
+            // Log or handle the exception
+            return back()->with('error', 'An error occurred while canceling the appointment.');
+        }
     }
     
 }

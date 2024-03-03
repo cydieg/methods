@@ -103,6 +103,7 @@ Route::get('/staff/acceptedappoint', [StaffController::class, 'acceptedAppointme
 Route::post('/accept-appointment/{appointment}', [StaffController::class, 'pendingAppointment'])->name('accept.appointment');
 Route::get('/logout', [AuthController::class, 'logout'])->name('manual.logout');
 Route::post('/complete-appointment/{appointment}', [StaffController::class, 'completeAppointment'])->name('complete.appointment');
+Route::put('/staff/cancel/{appointment}', [StaffController::class, 'cancelAppointment'])->name('staff.cancel');
 
 
 //landingpage
