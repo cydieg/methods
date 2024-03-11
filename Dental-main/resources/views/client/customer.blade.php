@@ -40,23 +40,21 @@
             @endif
 
             <div class="form-group">
-                <label for="first_name">First Name:</label>
-                <input type="text" name="first_name" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" name="last_name" class="form-control" required>
-            </div>
-
-            <div class="form-group">
                 <label for="appointment_date">Appointment Date:</label>
                 <input type="date" name="appointment_date" class="form-control" required>
             </div>
 
             <div class="form-group">
                 <label for="appointment_time">Appointment Time:</label>
-                <input type="time" name="appointment_time" class="form-control" required>
+                <select name="appointment_time" class="form-control" required>
+                    <option value="08:00">8:00 AM - 9:00 AM</option>
+                    <option value="09:00">9:00 AM - 10:00 AM</option>
+                    <option value="10:00">10:00 AM - 11:00 AM</option>
+                    <option value="11:00">11:00 AM - 12:00 PM</option>
+                    <option value="13:00">1:00 PM - 2:00 PM</option>
+                    <option value="15:00">3:00 PM - 4:00 PM</option>
+                    <option value="17:00">5:00 PM - 6:00 PM</option>
+                </select>
             </div>
 
             <div class="form-group">

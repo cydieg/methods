@@ -248,9 +248,10 @@
 							data-toggle="dropdown"
 						>
 							<span class="user-icon">
-								<img src="/back/images/cydiepic.jpg" alt="" />
+								<img src="/back/images/icon.jpg" alt="" />
 							</span>
-							<span class="user-name"> Cydie S. Gargullo</span>
+							<span class="user-name">{{ auth()->user()->firstName }} {{ auth()->user()->lastName }}</span>
+
 						</a>
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
@@ -471,9 +472,16 @@
 						<li class="dropdown">
 							<a href="{{ route('staff') }}" class="dropdown-toggle no-arrow">
 								<i class="micon bi bi-calendar"></i>
-								<span class="mtext">Appointment</span>
+								<span class="mtext">Pending Appointment</span>
 							</a>
 						</li>
+						<li class="dropdown">
+							<a href="{{ route('staff.acceptedappoint') }}" class="dropdown-toggle no-arrow">
+								<i class="micon bi bi-calendar"></i>
+								<span class="mtext">Accepted Appointments</span>
+							</a>
+						</li>
+						
 					</ul>
 				</div>
 			</div>

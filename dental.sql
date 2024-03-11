@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 20, 2024 at 01:27 PM
+-- Generation Time: Mar 03, 2024 at 02:29 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -36,7 +36,7 @@ CREATE TABLE `appointments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `status` enum('pending','accepted','completed','canceled') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `clinic_id` bigint UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -45,14 +45,13 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `first_name`, `last_name`, `appointment_date`, `appointment_time`, `created_at`, `updated_at`, `user_id`, `status`, `clinic_id`) VALUES
-(1, 'Client', 'Cal', '2024-02-19', '10:14:00', '2024-02-19 06:14:10', '2024-02-19 06:54:08', 3, 'completed', 16),
-(2, 'Jon Wendell', 'Cabrera', '2024-02-20', '11:53:00', '2024-02-19 06:53:24', '2024-02-19 06:54:02', 10, 'completed', 16),
-(3, 'Erzie', 'Bongo', '2024-02-20', '10:00:00', '2024-02-19 06:59:46', '2024-02-19 07:00:25', 12, 'completed', 16),
-(4, 'Erzie', 'Bongo', '2024-02-20', '11:01:00', '2024-02-19 07:01:37', '2024-02-19 07:01:37', 12, 'pending', 16),
-(5, 'Erzie', 'Bongo', '2024-02-19', '23:08:00', '2024-02-19 07:03:07', '2024-02-19 07:03:07', 12, 'pending', 16),
-(6, 'Erzie', 'Bongo', '2024-02-20', '12:04:00', '2024-02-19 07:04:45', '2024-02-19 07:04:45', 12, 'pending', 16),
-(7, 'Wendell', 'Bongo', '2024-02-19', '23:06:00', '2024-02-19 07:06:16', '2024-02-19 07:06:16', 12, 'pending', 16),
-(8, 'bongo', 'banga', '2024-02-27', '23:12:00', '2024-02-19 07:10:48', '2024-02-19 07:10:48', 12, 'pending', 16);
+(1, 'Erzie', 'Erzie', '2024-03-03', '08:00:00', '2024-03-02 08:08:04', '2024-03-02 08:56:04', 12, 'completed', 16),
+(2, 'Erzie', 'Erzie', '2024-03-03', '10:00:00', '2024-03-02 08:48:49', '2024-03-03 05:34:29', 12, 'completed', 16),
+(3, 'Erzie', 'Erzie', '2024-03-03', '08:00:00', '2024-03-03 05:34:51', '2024-03-03 05:47:43', 12, 'canceled', 16),
+(4, 'Erzie', 'Erzie', '2024-03-03', '08:00:00', '2024-03-03 05:50:20', '2024-03-03 05:50:46', 12, 'canceled', 16),
+(5, 'Erzie', 'Erzie', '2024-03-03', '08:00:00', '2024-03-03 05:51:44', '2024-03-03 05:52:14', 12, 'canceled', 16),
+(6, 'Erzie', 'Erzie', '2024-03-03', '10:00:00', '2024-03-03 06:27:06', '2024-03-03 06:27:44', 12, 'completed', 16),
+(7, 'Erzie', 'Erzie', '2024-03-03', '08:00:00', '2024-03-03 06:28:25', '2024-03-03 06:28:57', 12, 'canceled', 16);
 
 -- --------------------------------------------------------
 
@@ -122,7 +121,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2023_12_26_071104_add_status_to_appointments_table', 6),
 (8, '2024_02_12_120327_add_super_admin_role_to_users', 7),
 (9, '2024_02_18_113423_add_clinic_id_to_appointments_table', 8),
-(10, '2024_02_19_132112_add_doctor_name_to_clinics_table', 9);
+(10, '2024_02_19_132112_add_doctor_name_to_clinics_table', 9),
+(11, '2024_03_02_154939_update_status_column_in_appointments_table', 10),
+(12, '2024_03_03_134341_add_canceled_status_to_appointments_table', 11);
 
 -- --------------------------------------------------------
 
@@ -275,7 +276,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `clinics`
@@ -293,7 +294,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

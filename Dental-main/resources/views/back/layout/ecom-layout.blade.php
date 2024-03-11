@@ -24,8 +24,19 @@
 		<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
+			
 		<![endif]-->
-	
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		
 	</head>
 	<body>
 
@@ -60,28 +71,40 @@
 					<li><a href="{{ route('home1') }}">Home</a></li>
 					<li><a href="{{ route('about2') }}">About</a></li>
 					<li><a href="{{ route('dentalClinic2') }}">Clinics</a></li>
-					
-					</ul>
-            </div>
-            <ul class="nav header-navbar-rht">
-                <li class="nav-item contact-item">
-                    <div class="header-contact-img">
-                        <i class="far fa-hospital"></i>
-                    </div>
-                    <div class="header-contact-detail">
-                        <p class="contact-header">Contact</p>
-                        <p class="contact-info-header">+63 9637411286</p>
-                    </div>
-                </li>
-				<li class="nav-item">
+					<li class="nav-item">
 					<a class="nav-link header-login" href="{{ route('customer') }}">
 						<i class="fas fa-calendar-plus"></i> Make Appointment
 					</a>
+					
 				</li>
-                <li class="nav-item">
-                    <a class="nav-link header-login" href="{{ route('manual.logout') }}">Logout</a>
-                </li>
-            </ul>
+					
+					</ul>
+            </div>
+			<ul class="nav header-navbar-rht">
+				<li class="nav-item contact-item">
+					<div class="header-contact-img">
+						<i class="far fa-hospital"></i>
+					</div>
+				</li>
+				<li class="nav-item user-info-dropdown dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+						<span class="user-icon">
+							<i class="far fa-user"></i>
+						</span>
+						<span class="user-name">{{ auth()->user()->firstName }} {{ auth()->user()->lastName }}</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+						<a class="dropdown-item" href="{{ route('manual.logout') }}">
+							<i class="dw dw-logout"></i> Log Out
+						</a>
+					</div>
+				</li>
+			</ul>
+			
+			<!-- Bootstrap JavaScript -->
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+			
+			
         </nav>
     </header>
     
