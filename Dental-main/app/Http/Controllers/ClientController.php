@@ -51,19 +51,4 @@ class ClientController extends Controller
     
         return redirect()->route('customer')->with('success', 'Appointment requested successfully. Please wait for a notification in your email.');
     }
-    
-public function home1()
-{
-    return view('home1');
-}
-
-public function about2()
-{
-    return view('about2');
-}
-
-public function dentalClinic2()
-{
-    return view('dentalClinic2');
-}
 }

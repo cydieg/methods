@@ -68,9 +68,9 @@
                     </a>
                 </div>
 				<ul class="main-nav">
-					<li><a href="{{ route('home1') }}">Home</a></li>
-					<li><a href="{{ route('about2') }}">About</a></li>
-					<li><a href="{{ route('dentalClinic2') }}">Clinics</a></li>
+					<li><a href="">Home</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Clinics</a></li>
 					<li class="nav-item">
 					<a class="nav-link header-login" href="{{ route('customer') }}">
 						<i class="fas fa-calendar-plus"></i> Make Appointment

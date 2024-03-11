@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserManagmentController;
 use App\Http\Controllers\CashierController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ClientController;  
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SuperAdminController;
@@ -95,6 +95,8 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+
 //Staff apointment routes
 Route::get('/staff', [StaffController::class, 'index'])->name('staff');
 Route::get('/homeStaff', [StaffController::class, 'homeStaff'])->name('homeStaff');
@@ -106,14 +108,13 @@ Route::post('/complete-appointment/{appointment}', [StaffController::class, 'com
 Route::put('/staff/cancel/{appointment}', [StaffController::class, 'cancelAppointment'])->name('staff.cancel');
 
 
-//landingpage
-Route::get('/home', [PageController::class, 'home'])->name('home');
-Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/dentalClinic', [PageController::class, 'dentalClinic'])->name('dentalClinic');
-Route::get('/map', [PageController::class, 'map'])->name('map');
 
-
-
+//Landing_Page
+Route::get('/', [LandingPageController::class, 'Home'])->name('home');
+Route::get('/ContactUs', [LandingPageController::class, 'ContactUs'])->name('contactUs');
+Route::get('/Services', [LandingPageController::class, 'Services'])->name('services');
+Route::get('/OurClinic', [LandingPageController::class, 'OurClinic'])->name('ourClinic');
+Route::get('/OurShop', [LandingPageController::class, 'OurShop'])->name('ourShop');
 
 
 //super admin routes
