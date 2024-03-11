@@ -490,14 +490,6 @@
 								><span class="mtext">Visualization</span>
 							</a>
 						</li>
-
-						<li>
-							<a href="chat.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-chat-right-dots"></span
-								><span class="mtext">Chat</span>
-							</a>
-						</li>
-				
 				</div>
 			</div>
 		</div>

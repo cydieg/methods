@@ -452,17 +452,6 @@
 								><span class="mtext">Home</span>
 							</a>
 						</li>
-                        <!--
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon bi bi-textarea-resize"></span
-								><span class="mtext">Forms</span>
-							</a>
-							<ul class="submenu">
-								<li><a href="form-wizard.html">Form Wizard</a></li>
-							</ul>
-						</li>
-                        -->
 						<li class="dropdown">
 							<a href="{{ route('appointment.completed') }}" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-arrow-up-right-square"></span>
@@ -474,17 +463,7 @@
 								<span class="micon bi bi-bar-chart"></span>
 								<span class="mtext">Reports</span>
 							</a>
-						</li>		
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-building"></span>
-								<span class="mtext">Manage Clinics</span>
-							</a>
-							<ul class="submenu">
-								<li>
-							<a href="/create-clinic" >Add Clinic</a></ul>
-							<!-- Add the following button for creating a branch -->
-						</li>                    
+						</li>		          
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-person"></span>
@@ -496,36 +475,10 @@
 							<a href="{{ route('userTable') }}">Manage Users</a>
 						</li>
 						</ul>
-                        <li class="dropdown">
-							<a href="/map" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-box"></span
-								><span class="mtext">Mapping</span>
-							</a>								
-						</li>
-						</ul>
-						<ul>
-                        <li class="dropdown">
+						 <li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-arrow-up-right-square"></span
 								><span class="mtext">Visualization</span>
-							</a>
-						</li>
-
-                     </ul>
-                       <ul>
-						<li>
-							<a href="chat.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-chat-right-dots"></span
-								><span class="mtext">Chat</span>
-							</a>
-						</li>
-					</ul>
-						
-					<ul>
-						<li>
-							<a href="chat.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-chat-right-dots"></span
-								><span class="mtext">Invoices</span>
 							</a>
 						</li>
 					</ul>

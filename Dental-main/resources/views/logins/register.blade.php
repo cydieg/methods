@@ -1,12 +1,12 @@
 @extends('back.layout.auth-layout')
-
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Register')
-
 @section('content')
+
 <div class="login-box bg-white box-shadow border-radius-10">
     <div class="login-title">
         <h2 class="text-center text-primary">Registration</h2>
     </div>
+    
     <form action="{{ route('register') }}" method="post">
         @csrf <!-- Add CSRF token -->
 

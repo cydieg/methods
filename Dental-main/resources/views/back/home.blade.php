@@ -483,17 +483,7 @@
 								<span class="mtext">Reports</span>
 							</a>
 						</li>						
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-building"></span>
-								<span class="mtext">Manage Clinics</span>
-							</a>
-							<ul class="submenu">
-								<li>
-							<a href="/create-clinic" >Add Clinic</a></li></ul>
-							<!-- Add the following button for creating a branch -->
-						</li>
-						                    
+               
 						<li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-person"></span>
@@ -505,13 +495,6 @@
 							<a href="{{ route('userTable') }}">Manage Users</a>
 						</li>
 						</ul>
-                        <li class="dropdown">
-							<a href="/map" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-box"></span
-								><span class="mtext">Mapping</span>
-							</a>								
-						</li>
-						</ul>
 						<ul>
                         <li class="dropdown">
 							<a href="javascript:;" class="dropdown-toggle no-arrow">
@@ -521,23 +504,6 @@
 						</li>
 
                      </ul>
-                       <ul>
-						<li>
-							<a href="chat.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-chat-right-dots"></span
-								><span class="mtext">Chat</span>
-							</a>
-						</li>
-					</ul>
-						
-					<ul>
-						<li>
-							<a href="chat.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-chat-right-dots"></span
-								><span class="mtext">Invoices</span>
-							</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>
