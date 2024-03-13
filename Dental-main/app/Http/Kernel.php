@@ -44,14 +44,14 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
-        // app/Http/Kernel.php
+    // app/Http/Kernel.php
 
     protected $routeMiddleware = [
-        // ... other middleware
+        // Other middleware...
         'auth.manual' => \App\Http\Middleware\AuthenticateManual::class,
         'redirectIfAuthenticated' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'PreventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
     ];
-
 
     /**
      * The application's middleware aliases.

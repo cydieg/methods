@@ -68,6 +68,24 @@
             $('#productModal').modal('show');
         }
 
+        // Function to increment quantity
+        function incrementQuantity() {
+            var quantityElement = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityElement.value);
+            quantityElement.value = currentQuantity + 1;
+            calculateTotal();
+        }
+
+        // Function to decrement quantity
+        function decrementQuantity() {
+            var quantityElement = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityElement.value);
+            if (currentQuantity > 1) {
+                quantityElement.value = currentQuantity - 1;
+                calculateTotal();
+            }
+        }
+
         // Function to calculate total price based on quantity input
         function calculateTotal() {
             var quantity = parseInt(document.getElementById('quantity').value);
@@ -77,7 +95,7 @@
         }
 
         // Event listener for quantity input change
-        document.getElementById('quantity').addEventListener('input', calculateTotal);
+        //document.getElementById('quantity').addEventListener('input', calculateTotal);
 
         // Function to handle buy now button click
         function buyProduct() {
@@ -109,13 +127,19 @@
                     <p id="productDescription"></p>
                     <p>Price: $<span id="productPrice"></span></p>
                     <p>Current Quantity: <span id="productQuantity"></span></p>
-                    <form id="buyForm">
-                        <div class="form-group">
-                            <label for="quantity">Quantity:</label>
-                            <input type="number" class="form-control" id="quantity" name="quantity" min="1" required onchange="calculateTotal()">
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" onclick="decrementQuantity()">-</button>
+                            </div>
+                            <input type="text" class="form-control text-center" id="quantity" name="quantity" value="1" readonly>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="incrementQuantity()">+</button>
+                            </div>
                         </div>
-                        <p>Total Price: $<span id="totalPrice"></span></p>
-                    </form>
+                    </div>
+                    <p>Total Price: $<span id="totalPrice"></span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
