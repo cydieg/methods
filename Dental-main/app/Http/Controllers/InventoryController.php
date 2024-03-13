@@ -22,9 +22,18 @@ class InventoryController extends Controller
         $request->validate([
             // Your validation rules...
         ]);
-
-        // Handle file upload...
-
+    
+        // Handle file upload
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+        } else {
+            $imageName = null; // Set default value if no image is uploaded
+        }
+    
+        // Generate UPC code (example: using product ID)
+        $upc = 'UPC-' . str_pad(Inventory::max('id') + 1, 8, '0', STR_PAD_LEFT);
+    
         // Create new inventory item...
         
         // Create audit record for addition of the inventory item
@@ -40,7 +49,7 @@ class InventoryController extends Controller
             'expiration' => $request->expiration,
             'clinic_id' => $request->clinic_id
         ]);
-
+    
         Audit::create([
             'inventory_id' => $inventory->id,
             'upc' => $upc,
@@ -50,10 +59,10 @@ class InventoryController extends Controller
             'quantity' => $request->quantity,
             'type' => 'inbound', // Type is inbound for addition
         ]);
-
+    
         return redirect()->route('inventory.index')->with('success', 'Product added successfully.');
     }
-
+    
     public function showAudit($id)
     {
         $inventory = Inventory::findOrFail($id);

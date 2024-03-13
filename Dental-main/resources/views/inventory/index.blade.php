@@ -48,6 +48,7 @@
                 <th>Clinic</th>
                 <th>Action</th>
                 <th>Expiration</th>
+                <th>UPC</th>
             </tr>
         </thead>
         <tbody>
@@ -68,13 +69,13 @@
                     <!-- Button to trigger quantity modal -->
                     <button type="button" class="btn btn-success add-quantity-btn" data-toggle="modal" data-target="#addQuantityModal" data-item-id="{{ $item->id }}">Add Quantity</button>
                 </td>
-                
                 <td>{{ $item->expiration }}</td>
+                <!-- Display UPC -->
+                <td>{{ $item->upc }}</td>
             </tr>
             @endforeach
         </tbody>
-    </table>
-    
+        
 
     <!-- Clinic Selection Modal -->
     <div class="modal fade" id="clinicModal" tabindex="-1" aria-labelledby="clinicModalLabel" aria-hidden="true">
