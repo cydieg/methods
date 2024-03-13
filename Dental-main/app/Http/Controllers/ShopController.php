@@ -10,9 +10,19 @@ use Illuminate\Support\Facades\Storage;
 
 class ShopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $inventoryItems = Inventory::paginate(9); // Paginate with 9 items per page
-        return view('shop.shop', compact('inventoryItems'));
+        $clinicId = $request->input('clinic_id');
+        $clinics = Clinic::all();
+        
+        // If no clinic ID is provided in the request, get the ID of the first clinic in the database
+        if (!$clinicId && $clinics->isNotEmpty()) {
+            $clinicId = $clinics->first()->id;
+        }
+        
+        // Fetch inventory items based on the provided or default clinic ID
+        $inventoryItems = Inventory::where('clinic_id', $clinicId)->paginate(9);
+
+        return view('shop.shop', compact('inventoryItems', 'clinics', 'clinicId'));
     }
 }

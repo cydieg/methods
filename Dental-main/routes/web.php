@@ -154,3 +154,5 @@ Route::delete('/admin/inventory/{id}', [InventoryController::class, 'destroy'])-
 
 // ecom routes
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/clinic/{clinic_id}/buy/{inventory_id}', [ShopController::class, 'buyFromClinic'])->name('clinic.buy');
