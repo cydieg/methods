@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 03, 2024 at 02:29 PM
+-- Generation Time: Mar 13, 2024 at 03:17 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dental`
+-- Database: `vet`
 --
 
 -- --------------------------------------------------------
@@ -36,7 +36,7 @@ CREATE TABLE `appointments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
-  `status` enum('pending','accepted','completed','canceled') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `status` enum('pending','accepted','completed','canceled') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `clinic_id` bigint UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -56,6 +56,36 @@ INSERT INTO `appointments` (`id`, `first_name`, `last_name`, `appointment_date`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `audits`
+--
+
+CREATE TABLE `audits` (
+  `id` bigint UNSIGNED NOT NULL,
+  `inventory_id` bigint UNSIGNED NOT NULL,
+  `upc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `old_quantity` int UNSIGNED NOT NULL,
+  `quantity` int UNSIGNED NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'inbound',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `audits`
+--
+
+INSERT INTO `audits` (`id`, `inventory_id`, `upc`, `name`, `description`, `old_quantity`, `quantity`, `type`, `created_at`, `updated_at`) VALUES
+(1, 5, '17102537969873', 'Chains', 'Dog Leash', 101, 21, 'inbound', '2024-03-12 07:50:14', '2024-03-12 07:50:14'),
+(2, 5, '17102537969873', 'Chains', 'Dog Leash', 122, 1, 'inbound', '2024-03-12 08:11:05', '2024-03-12 08:11:05'),
+(3, 5, '17102537969873', 'Chains', 'Dog Leash', 123, 21, 'inbound', '2024-03-13 05:20:52', '2024-03-13 05:20:52'),
+(9, 12, '17103376866', 'MedDog', 'Dog Med', 0, 35, 'inbound', '2024-03-13 05:48:06', '2024-03-13 05:48:06'),
+(10, 13, '171034228612', 'Leash', 'Dog Leash', 0, 35, 'inbound', '2024-03-13 07:04:46', '2024-03-13 07:04:46');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `clinics`
 --
 
@@ -68,7 +98,7 @@ CREATE TABLE `clinics` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `user_id` bigint UNSIGNED NOT NULL DEFAULT '1',
-  `doctor_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `doctor_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -98,6 +128,36 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `inventories`
+--
+
+CREATE TABLE `inventories` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `quantity` int NOT NULL DEFAULT '0',
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `category` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `upc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `expiration` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `clinic_id` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `inventories`
+--
+
+INSERT INTO `inventories` (`id`, `name`, `description`, `quantity`, `image`, `category`, `price`, `upc`, `expiration`, `created_at`, `updated_at`, `clinic_id`) VALUES
+(5, 'Chains', 'Dog Leash', 144, '1710253796.jpg', 'Solid', 32.00, '17102537969873', '2024-03-11 16:00:00', '2024-03-12 14:29:00', '2024-03-13 05:20:52', 16),
+(12, 'MedDog', 'Dog Med', 35, '1710337686.jpg', 'Liquid', 35.00, '17103376866', '2024-03-12 16:00:00', '2024-03-13 13:48:00', '2024-03-13 05:48:06', 16),
+(13, 'Leash', 'Dog Leash', 35, '1710342286.png', '35', 45.00, '171034228612', '2024-03-12 16:00:00', '2024-03-13 15:04:00', '2024-03-13 07:04:46', 18);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -123,7 +183,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2024_02_18_113423_add_clinic_id_to_appointments_table', 8),
 (10, '2024_02_19_132112_add_doctor_name_to_clinics_table', 9),
 (11, '2024_03_02_154939_update_status_column_in_appointments_table', 10),
-(12, '2024_03_03_134341_add_canceled_status_to_appointments_table', 11);
+(12, '2024_03_03_134341_add_canceled_status_to_appointments_table', 11),
+(13, '2024_03_12_132234_remove_clinic_id_from_inventories_table', 12),
+(14, '2024_03_12_144100_create_audits_table', 13),
+(15, '2024_03_12_151530_create_audits_table', 14),
+(16, '2024_03_12_153646_create_audits_table', 15);
 
 -- --------------------------------------------------------
 
@@ -210,7 +274,8 @@ INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `middleName`, `a
 (7, 'admincal', 'admincal', 'admincal', 'admincal', 'Test', 'female', 21, 'admincal@gmail.com', '$2y$12$xgLPf4n42RNZ4Ewog5sC8.uKW/go4WSFYehre9FExL4soV3iI/kFu', '2024-02-19 06:16:39', '2024-02-19 06:16:39', 16, 'admin'),
 (10, 'patient', 'patient', 'patient', 'patient', 'Test', 'male', 21, 'patient@gmail.com', '$2y$12$Eqdn7KFYxfowH0zsD6N3AOI0DpGh95lLHClvGyoz9C5jQIUaLNWsC', '2024-02-19 06:50:01', '2024-02-19 06:50:01', NULL, 'patient'),
 (11, 'clientcal', 'clientcal', 'clientcal', 'clientcal', 'Test', 'female', 21, 'clientcal@gmail.com', '$2y$12$MXJHFcL5KU0JqA/aaLGVbuZ5L0i9tMzNvdjbc6kL1KONuSqkWfa52', '2024-02-19 06:56:07', '2024-02-19 06:56:07', NULL, 'patient'),
-(12, 'Erzie', 'Erzie', 'Erzie', 'Erzie', 'Cebu', 'male', 21, 'janzkiemalditz@gmail.com', '$2y$12$LQHMcDEiQpLRKZVr7/0g9.6wt3/MM6tr3gbQHAVUWeYoD9Yxh2TFC', '2024-02-19 06:58:17', '2024-02-19 06:58:17', NULL, 'patient');
+(12, 'Erzie', 'Erzie', 'Erzie', 'Erzie', 'Cebu', 'male', 21, 'janzkiemalditz@gmail.com', '$2y$12$LQHMcDEiQpLRKZVr7/0g9.6wt3/MM6tr3gbQHAVUWeYoD9Yxh2TFC', '2024-02-19 06:58:17', '2024-02-19 06:58:17', NULL, 'patient'),
+(13, 'adminvic', 'adminvic', 'adminvic', 'adminvic', 'test', 'female', 32, 'adminvic@gmail.com', '$2y$12$ln9eWedJqdIjAMTWjHJeKeVa1kDyI.stctmp/7OAzJtSK0oXazt9e', '2024-03-13 06:38:37', '2024-03-13 06:38:37', 18, 'admin');
 
 --
 -- Indexes for dumped tables
@@ -224,6 +289,13 @@ ALTER TABLE `appointments`
   ADD KEY `appointments_clinic_id_foreign` (`clinic_id`);
 
 --
+-- Indexes for table `audits`
+--
+ALTER TABLE `audits`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `audits_inventory_id_foreign` (`inventory_id`);
+
+--
 -- Indexes for table `clinics`
 --
 ALTER TABLE `clinics`
@@ -235,6 +307,12 @@ ALTER TABLE `clinics`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `inventories`
+--
+ALTER TABLE `inventories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -279,6 +357,12 @@ ALTER TABLE `appointments`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `audits`
+--
+ALTER TABLE `audits`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `clinics`
 --
 ALTER TABLE `clinics`
@@ -291,10 +375,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `inventories`
+--
+ALTER TABLE `inventories`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -306,7 +396,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -317,6 +407,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `appointments`
   ADD CONSTRAINT `appointments_clinic_id_foreign` FOREIGN KEY (`clinic_id`) REFERENCES `clinics` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `audits`
+--
+ALTER TABLE `audits`
+  ADD CONSTRAINT `audits_inventory_id_foreign` FOREIGN KEY (`inventory_id`) REFERENCES `inventories` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

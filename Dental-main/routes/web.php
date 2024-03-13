@@ -12,6 +12,8 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\SuperAdmin\UserManagementController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ShopController;
+
 
 
 /*
@@ -148,3 +150,7 @@ Route::post('/inventory/addquantity/{id}', [InventoryController::class, 'addQuan
 //admin in ventory
 Route::get('/admin/inventory', [InventoryController::class, 'indexadmin'])->name('admin.inventory.indexadmin');
 Route::delete('/admin/inventory/{id}', [InventoryController::class, 'destroy'])->name('admin.inventory.delete');
+
+
+// ecom routes
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
