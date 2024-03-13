@@ -17,51 +17,52 @@ class InventoryController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // Validation rules for the form inputs
-        $request->validate([
-            // Your validation rules...
-        ]);
-    
-        // Handle file upload
-        if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-        } else {
-            $imageName = null; // Set default value if no image is uploaded
-        }
-    
-        // Generate UPC code (example: using product ID)
-        $upc = 'UPC-' . str_pad(Inventory::max('id') + 1, 8, '0', STR_PAD_LEFT);
-    
-        // Create new inventory item...
-        
-        // Create audit record for addition of the inventory item
-        $inventory = Inventory::create([
-            'upc' => $upc,
-            'name' => $request->name,
-            'description' => $request->description,
-            'quantity' => $request->quantity,
-            'image' => $imageName,
-            'category' => $request->category,
-            'price' => $request->price,
-            'created_at' => $request->created_at,
-            'expiration' => $request->expiration,
-            'clinic_id' => $request->clinic_id
-        ]);
-    
-        Audit::create([
-            'inventory_id' => $inventory->id,
-            'upc' => $upc,
-            'name' => $request->name,
-            'description' => $request->description,
-            'old_quantity' => 0, // Initial quantity is 0
-            'quantity' => $request->quantity,
-            'type' => 'inbound', // Type is inbound for addition
-        ]);
-    
-        return redirect()->route('inventory.index')->with('success', 'Product added successfully.');
+{
+    // Validation rules for the form inputs
+    $request->validate([
+        // Your validation rules...
+    ]);
+
+    // Handle file upload
+    if ($request->hasFile('image')) {
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+    } else {
+        $imageName = null; // Set default value if no image is uploaded
     }
+
+    // Generate UPC code (using timestamp and inventory ID)
+    $upc = time() . Inventory::max('id');
+
+    // Create new inventory item...
+    
+    // Create audit record for addition of the inventory item
+    $inventory = Inventory::create([
+        'upc' => $upc,
+        'name' => $request->name,
+        'description' => $request->description,
+        'quantity' => $request->quantity,
+        'image' => $imageName,
+        'category' => $request->category,
+        'price' => $request->price,
+        'created_at' => $request->created_at,
+        'expiration' => $request->expiration,
+        'clinic_id' => $request->clinic_id
+    ]);
+
+    Audit::create([
+        'inventory_id' => $inventory->id,
+        'upc' => $upc,
+        'name' => $request->name,
+        'description' => $request->description,
+        'old_quantity' => 0, // Initial quantity is 0
+        'quantity' => $request->quantity,
+        'type' => 'inbound', // Type is inbound for addition
+    ]);
+
+    return redirect()->route('inventory.index')->with('success', 'Product added successfully.');
+}
+
     
     public function showAudit($id)
     {
