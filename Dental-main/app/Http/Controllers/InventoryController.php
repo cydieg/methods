@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Inventory;
 use App\Models\Clinic;
 use App\Models\Audit;
+use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
 {
@@ -96,4 +97,31 @@ class InventoryController extends Controller
 
         return redirect()->back()->with('success', 'Quantity added successfully.');
     }
+        public function indexadmin()
+    {
+        // Get the authenticated user's clinic ID
+        $clinicId = auth()->user()->clinic_id;
+
+        // Retrieve the inventory items for the user's clinic
+        $inventoryItems = Inventory::whereHas('clinic', function ($query) use ($clinicId) {
+            $query->where('id', $clinicId);
+        })->get();
+
+        return view('admininven.indexadmin', compact('inventoryItems'));
+    }
+    public function destroy($id)
+    {
+        $inventory = Inventory::findOrFail($id);
+
+        // Delete the associated image file if it exists
+        if ($inventory->image && Storage::exists('public/images/' . $inventory->image)) {
+            Storage::delete('public/images/' . $inventory->image);
+        }
+
+        // Delete the inventory item
+        $inventory->delete();
+
+        return redirect()->route('admin.inventory.indexadmin')->with('success', 'Product deleted successfully.');
+    }
+
 }

@@ -145,4 +145,6 @@ Route::get('/inventory/{id}/audit', 'App\Http\Controllers\InventoryController@sh
 Route::post('/inventory/addquantity/{id}', [InventoryController::class, 'addQuantity'])->name('inventory.addquantity');
 
 
-
+//admin in ventory
+Route::get('/admin/inventory', [InventoryController::class, 'indexadmin'])->name('admin.inventory.indexadmin');
+Route::delete('/admin/inventory/{id}', [InventoryController::class, 'destroy'])->name('admin.inventory.delete');
