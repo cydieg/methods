@@ -11,8 +11,10 @@ use Illuminate\Http\Request;
 use App\Models\Clinic; 
 use Illuminate\Support\Facades\Mail; 
 use App\Mail\UserRegistered; 
+
 class AuthController extends Controller
 {
+    
     public function showRegistrationForm()
     {
         // Fetch all clinics from the database
