@@ -26,4 +26,9 @@ class Inventory extends Model
     {
         return $this->belongsTo(Clinic::class);
     }
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class, 'productID');
+    }
 }

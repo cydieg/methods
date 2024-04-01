@@ -35,7 +35,7 @@
                             <h5 class="card-title">{{ $item->name }}</h5>
                             <p class="card-text">{{ $item->description }}</p>
                             <p class="card-text">Price: ${{ $item->price }}</p>
-                            <a href="#" class="btn btn-primary" onclick="showProductModal('{{ $item->name }}', '{{ $item->description }}', {{ $item->price }}, {{ $item->quantity }})">View Details</a>
+                            <a href="#" class="btn btn-primary" onclick="showProductModal('{{ $item->id }}', '{{ $item->name }}', '{{ $item->description }}', {{ $item->price }}, {{ $item->quantity }}, {{ $clinicId }})">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -55,16 +55,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- JavaScript to update dropdown text -->
-    <!-- Add this JavaScript code below your existing JavaScript code -->
     <script>
         // Function to show the modal with product details
-        function showProductModal(name, description, price, quantity) {
+        function showProductModal(id, name, description, price, quantity, clinicId) {
+            document.getElementById('productId').value = id;
             document.getElementById('productName').innerText = name;
             document.getElementById('productDescription').innerText = description;
             document.getElementById('productPrice').innerText = price;
             document.getElementById('productQuantity').innerText = quantity;
             document.getElementById('quantity').value = 1; // Reset quantity input to 1
             document.getElementById('totalPrice').innerText = price; // Reset total price to product price
+            document.getElementById('clinicId').value = clinicId;
             $('#productModal').modal('show');
         }
 
@@ -94,23 +95,38 @@
             document.getElementById('totalPrice').innerText = totalPrice.toFixed(2);
         }
 
-        // Event listener for quantity input change
-        //document.getElementById('quantity').addEventListener('input', calculateTotal);
-
         // Function to handle buy now button click
         function buyProduct() {
+            var productId = document.getElementById('productId').value;
             var quantity = parseInt(document.getElementById('quantity').value);
             var price = parseFloat(document.getElementById('productPrice').innerText);
-            var total = parseFloat(document.getElementById('totalPrice').innerText);
-            // Add logic to handle purchase
-            // You can make an AJAX request here to process the purchase
-            // For now, simply log the quantity and total price
-            console.log('Quantity:', quantity);
-            console.log('Total Price:', total);
-            $('#productModal').modal('hide');
+            var clinicId = document.getElementById('clinicId').value;
+
+            // AJAX request to order the product
+            $.ajax({
+                url: "{{ route('order.product') }}",
+                type: "POST",
+                data: {
+                    productId: productId,
+                    quantity: quantity,
+                    price: price,
+                    clinicId: clinicId,
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    console.log(response);
+                    // Show success message
+                    alert("Order placed successfully. Order ID: " + response.orderID);
+                    // Reload the page
+                    location.reload();
+                },
+                error: function(xhr) {
+                    // Add logic to handle errors, like showing an error message
+                    console.log(xhr.responseText);
+                }
+            });
         }
     </script>
-
 
     <!-- Add this modal template to your existing HTML code -->
     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
@@ -127,6 +143,8 @@
                     <p id="productDescription"></p>
                     <p>Price: $<span id="productPrice"></span></p>
                     <p>Current Quantity: <span id="productQuantity"></span></p>
+                    <input type="hidden" id="productId">
+                    <input type="hidden" id="clinicId">
                     <div class="form-group">
                         <label for="quantity">Quantity:</label>
                         <div class="input-group">
@@ -143,7 +161,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="buyProduct()">Buy Now</button>
+                    <button type="button" class="btn btn-primary" onclick="buyProduct()">Order Now</button>
                 </div>
             </div>
         </div>

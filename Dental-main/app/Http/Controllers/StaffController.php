@@ -102,5 +102,7 @@ class StaffController extends Controller
             return back()->with('error', 'An error occurred while canceling the appointment.');
         }
     }
+
+    
     
 }
