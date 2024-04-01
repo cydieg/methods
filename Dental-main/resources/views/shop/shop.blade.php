@@ -10,18 +10,18 @@
     <div class="container mt-4">
         <h1 class="mb-4">Welcome to Our Shop</h1>
 
-        <!-- Dropdown selection for clinics -->
+        <!-- Dropdown selection for branches -->
         <div class="dropdown mb-4">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="clinicDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                @if($clinicId)
-                    {{ $clinics->where('id', $clinicId)->first()->name }}
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="branchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @if($branchId)
+                    {{ $branches->where('id', $branchId)->first()->name }}
                 @else
-                    Select Clinic
+                    Select Branches
                 @endif
             </button>
-            <div class="dropdown-menu" aria-labelledby="clinicDropdown">
-                @foreach($clinics as $clinic)
-                    <a class="dropdown-item" href="{{ route('shop.index', ['clinic_id' => $clinic->id]) }}">{{ $clinic->name }}</a>
+            <div class="dropdown-menu" aria-labelledby="branchDropdown">
+                @foreach($branches as $branch)
+                    <a class="dropdown-item" href="{{ route('shop.index', ['branch_id' => $branch->id]) }}">{{ $branch->name }}</a>
                 @endforeach
             </div>
         </div>
@@ -35,7 +35,7 @@
                             <h5 class="card-title">{{ $item->name }}</h5>
                             <p class="card-text">{{ $item->description }}</p>
                             <p class="card-text">Price: ${{ $item->price }}</p>
-                            <a href="#" class="btn btn-primary" onclick="showProductModal('{{ $item->id }}', '{{ $item->name }}', '{{ $item->description }}', {{ $item->price }}, {{ $item->quantity }}, {{ $clinicId }})">View Details</a>
+                            <a href="#" class="btn btn-primary" onclick="showProductModal('{{ $item->id }}', '{{ $item->name }}', '{{ $item->description }}', {{ $item->price }}, {{ $item->quantity }}, {{ $branchId }})">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
     <!-- JavaScript to update dropdown text -->
     <script>
         // Function to show the modal with product details
-        function showProductModal(id, name, description, price, quantity, clinicId) {
+        function showProductModal(id, name, description, price, quantity, branchId) {
             document.getElementById('productId').value = id;
             document.getElementById('productName').innerText = name;
             document.getElementById('productDescription').innerText = description;
@@ -65,7 +65,7 @@
             document.getElementById('productQuantity').innerText = quantity;
             document.getElementById('quantity').value = 1; // Reset quantity input to 1
             document.getElementById('totalPrice').innerText = price; // Reset total price to product price
-            document.getElementById('clinicId').value = clinicId;
+            document.getElementById('branchId').value = branchId;
             $('#productModal').modal('show');
         }
 
@@ -100,7 +100,7 @@
             var productId = document.getElementById('productId').value;
             var quantity = parseInt(document.getElementById('quantity').value);
             var price = parseFloat(document.getElementById('productPrice').innerText);
-            var clinicId = document.getElementById('clinicId').value;
+            var branchId = document.getElementById('branchId').value;
 
             // AJAX request to order the product
             $.ajax({
@@ -110,7 +110,7 @@
                     productId: productId,
                     quantity: quantity,
                     price: price,
-                    clinicId: clinicId,
+                    branchId: branchId,
                     _token: "{{ csrf_token() }}"
                 },
                 success: function(response) {
@@ -144,7 +144,7 @@
                     <p>Price: $<span id="productPrice"></span></p>
                     <p>Current Quantity: <span id="productQuantity"></span></p>
                     <input type="hidden" id="productId">
-                    <input type="hidden" id="clinicId">
+                    <input type="hidden" id="branchId">
                     <div class="form-group">
                         <label for="quantity">Quantity:</label>
                         <div class="input-group">

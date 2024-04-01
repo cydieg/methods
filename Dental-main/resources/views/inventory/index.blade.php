@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory</title>
+    <title>Branches</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome CSS -->
@@ -20,17 +20,17 @@
         <div class="row justify-content-between mb-3">
             <div class="col-md-4">
                 <!-- Back button -->
-                <a href="http://127.0.0.1:8000/super-admin-dashboard" class="btn btn-secondary">
+                <a href="{{ route('super-admin-dashboard') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Back
                 </a>
             </div>
             <div class="col-md-4">
                 <!-- Button to open modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clinicModal">
-                    <i class="fas fa-hospital"></i> Select Clinic
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#branchModal">
+                    <i class="fas fa-hospital"></i> Select Branch
                 </button>
-                <!-- Display selected clinic name -->
-                <h4 id="selectedClinicName"></h4>
+                <!-- Display selected branch name -->
+                <h4 id="selectedBranchName"></h4>
             </div>
             <div class="col-md-4 text-right">
                 <!-- Button to add product -->
@@ -51,7 +51,7 @@
                     <th>Category</th>
                     <th>Price</th>
                     <th>Created At</th>
-                    <th>Clinic</th>
+                    <th>Branch</th>
                     <th>Action</th>
                     <th>Expiration</th>
                     <th>UPC</th>
@@ -60,7 +60,7 @@
             <tbody>
                 <!-- Inventory items will be listed here -->
                 @foreach($inventoryItems as $item)
-                <tr data-clinic-id="{{ $item->clinic_id }}">
+                <tr data-branch-id="{{ $item->branch_id }}">
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->description }}</td>
                     <td>{{ $item->quantity }}</td>
@@ -68,7 +68,7 @@
                     <td>{{ $item->category }}</td>
                     <td>&#8369;{{ number_format($item->price, 2) }}</td>
                     <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->clinic->name }}</td>
+                    <td>{{ $item->branch->name }}</td>
                     <td>
                         <!-- Update action to redirect to audit page -->
                         <a href="{{ route('inventory.audit.show', ['id' => $item->id]) }}" class="btn btn-primary">Audit</a>
@@ -83,12 +83,12 @@
             </tbody>
         </table>
 
-        <!-- Clinic Selection Modal -->
-        <div class="modal fade" id="clinicModal" tabindex="-1" aria-labelledby="clinicModalLabel" aria-hidden="true">
+        <!-- Branch Selection Modal -->
+        <div class="modal fade" id="branchModal" tabindex="-1" aria-labelledby="branchModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="clinicModalLabel">Select Clinic</h5>
+                        <h5 class="modal-title" id="branchModalLabel">Select Branch</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -96,8 +96,8 @@
 
                     <div class="modal-body">
                         <ul class="list-group">
-                            @foreach($clinics as $clinic)
-                            <li class="list-group-item clinic-item" data-clinic-id="{{ $clinic->id }}">{{ $clinic->name }}</li>
+                            @foreach($branches as $branch)
+                            <li class="list-group-item branch-item" data-branch-id="{{ $branch->id }}">{{ $branch->name }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -153,12 +153,12 @@
                                 <label for="expiration">Expiration</label>
                                 <input type="date" class="form-control" id="expiration" name="expiration" required>
                             </div>
-                            <!-- Dropdown button for selecting clinic -->
+                            <!-- Dropdown button for selecting branch -->
                             <div class="form-group">
-                                <label for="clinic">Clinic</label>
-                                <select class="form-control" id="clinic" name="clinic_id" required>
-                                    @foreach($clinics as $clinic)
-                                    <option value="{{ $clinic->id }}">{{ $clinic->name }}</option>
+                                <label for="branch">Branch</label>
+                                <select class="form-control" id="branch" name="branch_id" required>
+                                    @foreach($branches as $branch)
+                                    <option value="{{ $branch->id }}">{{ $branch->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -209,21 +209,21 @@
     <!-- Custom JS -->
     <script>
         $(document).ready(function () {
-            // Handler for clinic selection
-            $(".clinic-item").click(function () {
-                var clinicId = $(this).data('clinic-id');
-                $("#selectedClinicName").text($(this).text());
-                filterInventoryByClinic(clinicId);
-                $('#clinicModal').modal('hide');
+            // Handler for branch selection
+            $(".branch-item").click(function () {
+                var branchId = $(this).data('branch-id');
+                $("#selectedBranchName").text($(this).text());
+                filterInventoryByBranch(branchId);
+                $('#branchModal').modal('hide');
             });
 
-            // Function to filter inventory items by clinic
-            function filterInventoryByClinic(clinicId) {
+            // Function to filter inventory items by branch
+            function filterInventoryByBranch(branchId) {
                 // Hide all inventory items
                 $('tbody tr').hide();
 
-                // Show only inventory items for the selected clinic
-                $('tbody tr[data-clinic-id="' + clinicId + '"]').show();
+                // Show only inventory items for the selected branch
+                $('tbody tr[data-branch-id="' + branchId + '"]').show();
             }
 
             // Handler for clicking Add Quantity button

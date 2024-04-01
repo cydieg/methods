@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sale;
 use App\Models\Inventory;
 use App\Models\Audit;
-use App\Models\Clinic;
+use App\Models\Branch; // Update namespace
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -14,19 +14,20 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
-        $clinicId = $request->input('clinic_id');
-        $clinics = Clinic::all();
+        $branchId = $request->input('branch_id'); // Update variable name
+        $branches = Branch::all(); // Update model name
         
-        // If no clinic ID is provided in the request, get the ID of the first clinic in the database
-        if (!$clinicId && $clinics->isNotEmpty()) {
-            $clinicId = $clinics->first()->id;
+        // If no branch ID is provided in the request, get the ID of the first branch in the database
+        if (!$branchId && $branches->isNotEmpty()) {
+            $branchId = $branches->first()->id;
         }
         
-        // Fetch inventory items based on the provided or default clinic ID
-        $inventoryItems = Inventory::where('clinic_id', $clinicId)->paginate(9);
+        // Fetch inventory items based on the provided or default branch ID
+        $inventoryItems = Inventory::where('branch_id', $branchId)->paginate(9); // Update field name
 
-        return view('shop.shop', compact('inventoryItems', 'clinics', 'clinicId'));
+        return view('shop.shop', compact('inventoryItems', 'branches', 'branchId')); // Update variable name
     }
+    
     public function orderProduct(Request $request)
     {
         try {
@@ -34,7 +35,7 @@ class ShopController extends Controller
             $productId = $request->input('productId');
             $quantity = $request->input('quantity');
             $price = $request->input('price');
-            $clinicId = $request->input('clinicId');
+            $branchId = $request->input('branchId'); // Update variable name
             $status = 'pending'; // Set initial status as pending
 
             // Generate unique order ID (You can use a more sophisticated method here)

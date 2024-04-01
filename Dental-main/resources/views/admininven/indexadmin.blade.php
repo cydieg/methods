@@ -31,7 +31,7 @@
                 <th>Category</th>
                 <th>Price</th>
                 <th>Created At</th>
-                <th>Clinic</th>
+                <th>Branch</th> <!-- Updated column name from Clinic to Branch -->
                 <th>Action</th>
                 <th>Expiration</th>
                 <th>UPC</th>
@@ -47,7 +47,7 @@
                     <td>{{ $item->category }}</td>
                     <td>&#8369;{{ number_format($item->price, 2) }}</td>
                     <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->clinic->name }}</td>
+                    <td>{{ $item->branch->name }}</td> <!-- Updated relationship to branch -->
                     <td>
                         <form method="POST" action="{{ route('admin.inventory.delete', $item->id) }}" onsubmit="return confirm('Are you sure you want to delete this product?');">
                             @csrf

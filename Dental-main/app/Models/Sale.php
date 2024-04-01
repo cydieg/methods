@@ -26,4 +26,5 @@ class Sale extends Model
     {
         return $this->hasOne(Audit::class, 'inventory_id', 'productID');
     }
+    
 }

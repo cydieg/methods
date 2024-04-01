@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inventory;
-use App\Models\Clinic;
+use App\Models\Branch;
 use App\Models\Audit;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,9 +12,9 @@ class InventoryController extends Controller
 {
     public function index()
     {
-        $clinics = Clinic::all();
+        $branches = Branch::all();
         $inventoryItems = Inventory::all();
-        return view('inventory.index', compact('clinics', 'inventoryItems'));
+        return view('inventory.index', compact('branches', 'inventoryItems'));
     }
 
     public function store(Request $request)
@@ -48,7 +48,7 @@ class InventoryController extends Controller
         'price' => $request->price,
         'created_at' => $request->created_at,
         'expiration' => $request->expiration,
-        'clinic_id' => $request->clinic_id
+        'branch_id' => $request->branch_id
     ]);
 
     Audit::create([
@@ -100,11 +100,11 @@ class InventoryController extends Controller
         public function indexadmin()
     {
         // Get the authenticated user's clinic ID
-        $clinicId = auth()->user()->clinic_id;
+        $branchId = auth()->user()->branch_id;
 
         // Retrieve the inventory items for the user's clinic
-        $inventoryItems = Inventory::whereHas('clinic', function ($query) use ($clinicId) {
-            $query->where('id', $clinicId);
+        $inventoryItems = Inventory::whereHas('branch', function ($query) use ($branchId) {
+            $query->where('id', $branchId);
         })->get();
 
         return view('admininven.indexadmin', compact('inventoryItems'));

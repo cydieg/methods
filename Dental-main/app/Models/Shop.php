@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Clinic extends Model
+class Shop extends Model
 {
     protected $fillable = [
         'name',
@@ -28,9 +28,9 @@ class Clinic extends Model
     {
         return $this->hasMany(Appointment::class, 'user_id');
     }
+
     public function inventories()
     {
         return $this->hasMany(Inventory::class);
     }
-    
 }

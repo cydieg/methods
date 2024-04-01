@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClinicController;
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserManagmentController;
 use App\Http\Controllers\CashierController;
@@ -48,8 +48,7 @@ Route::middleware(['auth.manual'])->group(function () {
 
 Route::get('/super-admin-dashboard', function () {
     return view('superadmin.dashboard');
-})->name('super_admin.home');
-Route::post('/super-admin-logout', [SuperAdminController::class, 'logout'])->name('super_admin.logout');
+})->name('super-admin-dashboard'); // <-- This is the named route
 
 
 // Separate route without the auth.manual middleware for the customer route
@@ -71,16 +70,27 @@ Route::group(['prefix' => 'user'], function () {
 
 
 
-// Clinic routes
-Route::get('/clinics/view', [ClinicController::class, 'viewClinics'])->name('clinics.view')->middleware('auth');
-Route::get('/clinics/create', [ClinicController::class, 'createForm'])->name('clinic.create.form')->middleware('auth');
-Route::post('/clinics/create', [ClinicController::class, 'create'])->name('clinic.create')->middleware('auth');
-Route::get('/edit-clinic/{id}', [ClinicController::class, 'edit'])->name('clinic.edit')->middleware('auth');
-Route::put('/update-clinic/{id}', [ClinicController::class, 'update'])->name('clinic.update')->middleware('auth');
-Route::get('/view-clinics', [ClinicController::class, 'viewClinics'])->name('clinic.view')->middleware('auth');
-Route::get('/clinics', [ClinicController::class, 'viewClinics'])->name('clinic.view')->middleware('auth');
-Route::delete('/clinics/{id}/archive', [ClinicController::class, 'archive'])->name('clinic.archive')->middleware('auth');
 
+// Branch routes
+Route::get('/branches/view', [BranchController::class, 'viewBranches'])->name('branches.view')->middleware('auth');
+Route::get('/branches/create', [BranchController::class, 'createForm'])->name('branch.create.form')->middleware('auth');
+Route::post('/branches/create', [BranchController::class, 'create'])->name('branch.create')->middleware('auth');
+Route::get('/edit-branch/{id}', [BranchController::class, 'edit'])->name('branch.edit')->middleware('auth');
+Route::put('/update-branch/{id}', [BranchController::class, 'update'])->name('branch.update')->middleware('auth');
+Route::get('/view-branches', [BranchController::class, 'viewBranches'])->name('branch.view')->middleware('auth');
+Route::get('/branches', [BranchController::class, 'viewBranches'])->name('branch.view')->middleware('auth');
+Route::delete('/branches/{id}/archive', [BranchController::class, 'archive'])->name('branch.archive')->middleware('auth');
+
+
+// Clinic routes
+//Route::get('/clinics/view', [ClinicController::class, 'viewClinics'])->name('clinics.view')->middleware('auth');
+//Route::get('/clinics/create', [ClinicController::class, 'createForm'])->name('clinic.create.form')->middleware('auth');
+//Route::post('/clinics/create', [ClinicController::class, 'create'])->name('clinic.create')->middleware('auth');
+//Route::get('/edit-clinic/{id}', [ClinicController::class, 'edit'])->name('clinic.edit')->middleware('auth');
+//Route::put('/update-clinic/{id}', [ClinicController::class, 'update'])->name('clinic.update')->middleware('auth');
+//Route::get('/view-clinics', [ClinicController::class, 'viewClinics'])->name('clinic.view')->middleware('auth');
+//Route::get('/clinics', [ClinicController::class, 'viewClinics'])->name('clinic.view')->middleware('auth');
+//Route::delete('/clinics/{id}/archive', [ClinicController::class, 'archive'])->name('clinic.archive')->middleware('auth');
 
 
 
@@ -161,5 +171,5 @@ Route::delete('/admin/inventory/{id}', [InventoryController::class, 'destroy'])-
 // ecom routes
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
-Route::get('/clinic/{clinic_id}/buy/{inventory_id}', [ShopController::class, 'buyFromClinic'])->name('clinic.buy');
+Route::get('/clinic/{branch_id}/buy/{inventory_id}', [ShopController::class, 'buyFromBranch'])->name('branch.buy');
 Route::post('/order-product', [ShopController::class, 'orderProduct'])->name('order.product');
