@@ -16,7 +16,7 @@
                 @if($branchId)
                     {{ $branches->where('id', $branchId)->first()->name }}
                 @else
-                    Select Branches
+                    Select branch
                 @endif
             </button>
             <div class="dropdown-menu" aria-labelledby="branchDropdown">
@@ -58,7 +58,7 @@
     <script>
         // Function to show the modal with product details
         function showProductModal(id, name, description, price, quantity, branchId) {
-            document.getElementById('productId').value = id;
+            document.getElementById('inventoryId').value = id; // Change to inventoryId
             document.getElementById('productName').innerText = name;
             document.getElementById('productDescription').innerText = description;
             document.getElementById('productPrice').innerText = price;
@@ -69,63 +69,38 @@
             $('#productModal').modal('show');
         }
 
-        // Function to increment quantity
-        function incrementQuantity() {
-            var quantityElement = document.getElementById('quantity');
-            var currentQuantity = parseInt(quantityElement.value);
-            quantityElement.value = currentQuantity + 1;
-            calculateTotal();
-        }
-
-        // Function to decrement quantity
-        function decrementQuantity() {
-            var quantityElement = document.getElementById('quantity');
-            var currentQuantity = parseInt(quantityElement.value);
-            if (currentQuantity > 1) {
-                quantityElement.value = currentQuantity - 1;
-                calculateTotal();
-            }
-        }
-
-        // Function to calculate total price based on quantity input
-        function calculateTotal() {
-            var quantity = parseInt(document.getElementById('quantity').value);
-            var price = parseFloat(document.getElementById('productPrice').innerText);
-            var totalPrice = quantity * price;
-            document.getElementById('totalPrice').innerText = totalPrice.toFixed(2);
-        }
-
         // Function to handle buy now button click
         function buyProduct() {
-            var productId = document.getElementById('productId').value;
-            var quantity = parseInt(document.getElementById('quantity').value);
-            var price = parseFloat(document.getElementById('productPrice').innerText);
-            var branchId = document.getElementById('branchId').value;
+        var inventoryId = document.getElementById('inventoryId').value;
+        var quantity = parseInt(document.getElementById('quantity').value);
+        var price = parseFloat(document.getElementById('productPrice').innerText);
+        var branchId = document.getElementById('branchId').value;
 
-            // AJAX request to order the product
-            $.ajax({
-                url: "{{ route('order.product') }}",
-                type: "POST",
-                data: {
-                    productId: productId,
-                    quantity: quantity,
-                    price: price,
-                    branchId: branchId,
-                    _token: "{{ csrf_token() }}"
-                },
-                success: function(response) {
-                    console.log(response);
-                    // Show success message
-                    alert("Order placed successfully. Order ID: " + response.orderID);
-                    // Reload the page
-                    location.reload();
-                },
-                error: function(xhr) {
-                    // Add logic to handle errors, like showing an error message
-                    console.log(xhr.responseText);
-                }
-            });
-        }
+        // AJAX request to order the product
+        $.ajax({
+            url: "{{ route('order.product') }}",
+            type: "POST",
+            data: {
+                inventoryId: inventoryId,
+                quantity: quantity,
+                price: price,
+                branchId: branchId,
+                _token: "{{ csrf_token() }}"
+            },
+            success: function(response) {
+                console.log(response);
+                // Show success message
+                alert("Order placed successfully. Order ID: " + response.orderID);
+                // Reload the page
+                location.reload();
+            },
+            error: function(xhr) {
+                // Add logic to handle errors, like showing an error message
+                console.log(xhr.responseText);
+            }
+        });
+    }
+        
     </script>
 
     <!-- Add this modal template to your existing HTML code -->
@@ -143,7 +118,7 @@
                     <p id="productDescription"></p>
                     <p>Price: $<span id="productPrice"></span></p>
                     <p>Current Quantity: <span id="productQuantity"></span></p>
-                    <input type="hidden" id="productId">
+                    <input type="hidden" id="inventoryId"> <!-- Change to inventoryId -->
                     <input type="hidden" id="branchId">
                     <div class="form-group">
                         <label for="quantity">Quantity:</label>
@@ -162,6 +137,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" onclick="buyProduct()">Order Now</button>
+
                 </div>
             </div>
         </div>

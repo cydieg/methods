@@ -28,7 +28,8 @@ class Inventory extends Model
     }
     
     public function sales()
-    {
-        return $this->hasMany(Sale::class, 'productID');
-    }
+{
+    return $this->hasMany(Sale::class, 'inventory_id'); // Change 'productID' to 'inventory_id'
+}
+
 }
